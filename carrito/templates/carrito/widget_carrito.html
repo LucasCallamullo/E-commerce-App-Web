@@ -1,0 +1,53 @@
+
+{% load humanize %}
+<!-- Tu contenido aquí <button class="btn btn-primary" id="cart-button">Ver Carrito</button> -->
+
+    <div class="cart-container" id="cart-container">
+
+        <!-- Encabezado del carrito -->
+        <div class="cart-header">
+            <button class="btn btn-danger btn-sm remove-btn" id="close-cart">✖</button>
+            <h4 class="text-left"><strong>&nbsp;Mi Carrito</strong></h4>
+        </div>
+
+        <!-- Contenido del carrito -->
+        <div class="cart-content" id="carrito-contenido">
+
+                {% for key, value in carrito.items %}
+                    <div class="cart-item position-relative mb-3 d-flex align-items-center">
+                        <img src="{{value.imagen}}" class="img-fluid" alt="Product Image" style="width: 150px; height: auto; margin-right: 15px;">
+                        <div>
+                            <h6>{{ value.nombre }}</h6>
+                            <p>{{ value.cantidad }} × ${{ value.precio|floatformat:0|intcomma }}</p>
+                            <!-- Contador y botón de eliminar -->
+                            <div class="d-flex align-items-center">
+                                <button class="btn btn-secondary btn-sm" id="decrement-quantity-{{value.id}}">-</button>
+
+                                <input type="number" class="form-control form-control-sm mx-2"
+                                       id="quantity-{{value.id}}" value="{{value.cantidad}}" min="1" readonly>
+
+                                <button class="btn btn-secondary btn-sm" id="increment-quantity-{{value.id}}">+</button>
+                            </div>
+                        </div>
+                        <!-- Botón de eliminar en la esquina superior derecha -->
+                        <button class="btn btn-danger btn-sm remove-btn" id="remove-item-{{value.id}}">✖</button>
+                    </div>
+                {% endfor %}
+
+        </div>
+
+        <!-- Pie del carrito -->
+        <div class="cart-footer text-center">
+
+            <h4 id="carrito-total">Total: ${{ carrito_total|floatformat:0|intcomma }}</h4>
+            <button class="btn btn-success w-100 mt-3">Finalizar</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Bootstrap JS and dependencies
+    probablemente podría actualizar los archivos del static pero por ahora meh -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+
+

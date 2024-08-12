@@ -1,0 +1,49 @@
+{% extends "tienda/base.html" %}
+
+
+
+{% block content %}
+
+    {% load humanize %}
+
+
+
+    <h1 style="color: white;">&nbsp;&nbsp;Tienda</h1>
+
+    <div class="container">
+        <!-- Mostrar el total del carrito -->
+        <div style="float: right;" id="carrito-total2">
+            <p style="color: white;">Total: ${{carrito_total}}</p>
+        </div>
+
+        <div class="row">
+
+            {% for producto in productos %}
+
+                <div class="col-3 mb-4">
+                    <div class="card">
+
+                        <div class="image-container">
+                            <img src="{{producto.imagen.url}}" class="card-img-top">
+                        </div>
+
+                        <div class="card-body">
+                            <h6 class="card-title">{{producto.nombre}}</h6>
+                            <p class="card-text">$&nbsp;{{ producto.precio|floatformat:0|intcomma }}</p>
+                        </div>
+
+                        <div class="card-footer text-center">
+                            <button id="add-to-cart-{{producto.id}}" class="btn btn-success">Agregar</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+
+
+{% endblock %}

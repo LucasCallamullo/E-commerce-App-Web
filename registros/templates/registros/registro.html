@@ -1,0 +1,110 @@
+{% extends "tienda/base.html" %}
+
+
+
+{% block content %}
+
+
+
+    <div class="form-container2 my-5">
+        <form method="POST" action="{% url 'Registro' %}">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="email">&nbsp;E-mail</label>
+                {{ form.email }}
+                <!-- Mostrar errores específicos del campo solo si el formulario ha sido enviado -->
+                {% if form_submitted %}
+                    {% if form.email.errors %}
+
+                        {% for error in form.email.errors %}
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ error }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        {% endfor %}
+
+                    {% endif %}
+                {% endif %}
+
+            </div>
+
+            <!-- Fila para Password -->
+            <div class="form-group">
+                <label for="password1">&nbsp;Password</label>
+                {{ form.password1 }}
+                <!-- Mostrar errores específicos del campo solo si el formulario ha sido enviado -->
+                {% if form_submitted %}
+                    {% if form.password1.errors %}
+
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            La contraseña es muy corta, debe tener al menos 4 caracteres.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                    {% endif %}
+                {% endif %}
+
+            </div>
+
+            <!-- Fila para Nombre y Apellido -->
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="first_name">&nbsp;Nombre</label>
+                    {{ form.first_name }}
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="last_name">&nbsp;Apellido</label>
+                    {{ form.last_name }}
+                </div>
+            </div>
+
+            <!-- Fila para Teléfono y Provincia -->
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="phone">&nbsp;Celular</label>
+                    {{ form.phone }}
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="province">&nbsp;Provincia</label>
+                    {{ form.province }}
+                </div>
+            </div>
+
+            <!-- Fila para Dirección -->
+            <div class="form-group">
+                <label for="address">&nbsp;Dirección</label>
+                {{ form.address }}
+            </div>
+
+            <input type="submit" value="Registrarse" class="btn btn-secondary">
+
+
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Encuentra todas las alertas con la clase 'alert'
+            var alerts = document.querySelectorAll('.alert');
+            // Itera sobre cada alerta y configúralo para que se cierre después de unos segundos
+            alerts.forEach(function (alert) {
+                setTimeout(function () {
+                    // Añade la clase 'fade' para que la alerta se desvanezca
+                    alert.classList.add('fade');
+                    // Añade la clase 'show' para que la alerta se oculte
+                    alert.classList.remove('show');
+                    // Espera que se complete la transición antes de eliminar el elemento del DOM
+                    setTimeout(function () {
+                        alert.remove();
+                    }, 150); // La duración del desvanecimiento puede variar
+                }, 5000); // Tiempo en milisegundos (5000ms = 5 segundos)
+            });
+        });
+    </script>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+
+
+
+
+{% extends "blog/blog_base.html" %}
+
+{% load static %}
+
+{% block content_blog %}
+    <div class="container mt-5 contenedorFormulario">
+        <h2>Create a New Post</h2>
+        <form method="post" enctype="multipart/form-data" class="form-post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_titulo">Title</label>
+                {{ form.titulo }}
+            </div>
+
+            <div class="form-group">
+                <label for="id_contenido">Content</label>
+                {{ form.contenido }}
+            </div>
+
+            <div class="form-group">
+                <label for="id_imagen">Image</label>
+                {{ form.imagen }}
+            </div>
+
+
+            <div class="container">
+                <label class="categories-container-label" for="id_cats">Categories:</label>
+
+                <div class="categories-container">
+                    {% for category in form.categorias %}
+                        {{ category }}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div style="margin-bottom: 15px; display: flex; justify-content: center; gap: 20px;">
+                <button type="submit" class="form-post-btn btn-submit">
+                    <i class="fas fa-check-circle" style="margin-right: 8px;"></i> Create Post
+                </button>
+
+                <button type="submit" class="form-post-btn btn-submit">
+                    <i class="fas fa-check-circle" style="margin-right: 8px;"></i> Cancel
+                </button>
+            </div>
+
+        </form>
+    </div>
+{% endblock %}

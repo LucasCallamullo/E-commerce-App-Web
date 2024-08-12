@@ -1,0 +1,76 @@
+
+
+
+{% extends "tienda/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3 sidebar">
+
+            <div class="sidebar-item">
+                <a href="{% url 'Post_create' %}" class="sidebar-link">
+                    <i class="fas fa-plus-circle sidebar-icon"></i>
+                    <span class="sidebar-text">Create Post</span>
+                </a>
+            </div>
+
+            <div class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <i class="fas fa-blog sidebar-icon"></i>
+                    <span class="sidebar-text">My Blogs</span>
+                </a>
+            </div>
+
+            <div class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <i class="fas fa-heart sidebar-icon"></i>
+                    <span class="sidebar-text">Likes: <span id="likes-number">123</span></span>
+                </a>
+            </div>
+
+            <div class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <i class="fas fa-bookmark sidebar-icon"></i>
+                    <span class="sidebar-text">Save</span>
+                </a>
+            </div>
+
+            <hr>
+
+
+
+            <div class="sidebar-category">
+                <a href="#"><strong>Categoria:</strong></a>
+
+                <!-- Categories deberán ponerse en cada hoja de las pestañas blog
+                 ver blog.html y en views/blog para ver el contexto a pasar en cada pagina para ejemplo-->
+                <ul class="category-list">
+                    {% block category_list %}
+                    <!-- Categories will be inserted here -->
+                    {% endblock %}
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-9">
+            {% block content_blog %}
+                <!-- Contenido específico de la página -->
+            {% endblock %}
+        </div>
+
+    </div>
+
+{% endblock %}
+
+
+
+
+
+
