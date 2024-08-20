@@ -1,7 +1,5 @@
 
 {% load humanize %}
-<!-- Tu contenido aquí <button class="btn btn-primary" id="cart-button">Ver Carrito</button> -->
-
     <div class="cart-container" id="cart-container">
 
         <!-- Encabezado del carrito -->
@@ -15,7 +13,7 @@
 
                 {% for key, value in carrito.items %}
                     <div class="cart-item position-relative mb-3 d-flex align-items-center">
-                        <img src="{{value.imagen}}" class="img-fluid" alt="Product Image" style="width: 150px; height: auto; margin-right: 15px;">
+                        <img src="{{value.imagen}}" class="img-fluid" alt="Product Image">
                         <div>
                             <h6>{{ value.nombre }}</h6>
                             <p>{{ value.cantidad }} × ${{ value.precio|floatformat:0|intcomma }}</p>
@@ -36,18 +34,24 @@
 
         </div>
 
-        <!-- Pie del carrito -->
+        <!-- Pie del carrito w-50 -->
         <div class="cart-footer text-center">
 
-            <h4 id="carrito-total">Total: ${{ carrito_total|floatformat:0|intcomma }}</h4>
-            <button class="btn btn-success w-100 mt-3">Finalizar</button>
+            <div class="total-row mt-1">
+                <h4>Total:</h4>
+                <h4 id="carrito-total">${{ carrito_total|floatformat:0|intcomma }}</h4>
+            </div>
+
+            <div class="d-flex mt-3 container-btn-cart">
+                <button class="btn-wdt-cart btn-ver-carrito" onclick="window.location.href={% url 'Ver_Carrito' %};">
+                    Ver Carrito
+                </button>
+                <button class="btn-wdt-cart btn-finalizar" onclick="window.location.href='#';">
+                    Finalizar
+                </button>
+            </div>
         </div>
     </div>
 
     <div class="overlay" id="overlay"></div>
-
-    <!-- Bootstrap JS and dependencies
-    probablemente podría actualizar los archivos del static pero por ahora meh -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-
 

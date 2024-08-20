@@ -5,34 +5,30 @@
 {% load static %}
 
 {% block content %}
-   
-    {% for service in servicios %}
 
-<!-- Heading -->
-    <section class="page-section clearfix">
-        <div class="container">
-            <div class="intro">
+    <div class="row">
 
-                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{service.imagen.url}}" alt=""
-                style="width: 50%">
+        {% for service in servicios %}
 
-                <div class="intro-text float-right text-center bg-faded p-5 rounded">
-
-                    <h2 class="section-heading mb-4" >
-                        <span class="section-heading-lower">{{service.titulo}}</span>
-                        <span class="section-heading-upper">{{service.contenido}}</span>
-                    </h2>
-
+        <div class="col-4 mb-4 mt-5">
+            <!-- Tarjeta Sevicio Presentacion -->
+            <div class="container d-flex align-items-center justify-content-center position-relative flex-wrap">
+                <div class="card-service d-flex position-relative flex-column">
+                    <div class='imgContainer'>
+                        <img src="{{service.imagen.url}}">
+                    </div>
+                    <h2 class="initial-title">{{service.titulo}}</h2>
+                    <div class="content">
+                        <h2>{{service.titulo}}</h2>
+                        <p>{{service.contenido}}</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
+        {% endfor %}
 
-    
-
-
-    {% endfor %}
+    </div>
 
 
 {% endblock %}

@@ -1,36 +1,40 @@
 
 
+<!-- Drop menu button para dropear menu-->
+<button class="btn cats-button" id="drop-cats" aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-bars"></i>
+    <span>Nuestros Productos</span>
+    <i class="fas fa-chevron-down arrow"></i>
+</button>
 
-<div class="cats-container">
-    <button class="cats-button" id="drop-cats" aria-haspopup="true" aria-expanded="false">
-        &nbsp;&nbsp;<i class="fas fa-bars">&nbsp;&nbsp;</i>
-        Nuestros Productos &nbsp;&nbsp;
-        <i class="fas fa-chevron-down">&nbsp;&nbsp;</i>
-    </button>
-
-    <div class="dropdown-content" id="cats-dropdown" aria-labelledby="cats-button">
-
-        <div class="dropdown-item">
-            <a href="#"> Periféricos </a>
-        </div>
-
-        <div class="dropdown-item">
-            <a href="#">
-                Componentes de PC
-                <i class="fas fa-chevron-right px-lg-5">&nbsp;</i>
+<ul class="dropdown-menu" id="cats-dropdown" aria-labelledby="drop-cats">
+    {% for category, subcategories in categories_dropmenu.items %}
+        <li class="dropdown-item">
+            <a href="{% url 'Producto_Categoria' category.id %}">
+                <div class="container-dropdown-menu-items">
+                    <span>{{ category.nombre }}</span>
+                    {% if subcategories %}
+                        <i class="fas fa-chevron-right"></i>
+                    {% endif %}
+                </div>
             </a>
+
+            {% if subcategories %}
             <!-- Submenú de Componentes de PC -->
-            <div class="sub-dropdown-content">
-                <a href="#">Item 1</a>
+            <ul class="sub-dropdown-content">
+                {% for subcategory in subcategories %}
+                    <li class="dropdown-item">
+                        <a href="{% url 'Producto_Subcategoria' category.id subcategory.id %}">
+                            {{ subcategory.nombre }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
 
-                <a href="#">Item 2</a>
 
-                <a href="#">Item 3</a>
-            </div>
-        </div>
 
-        <div class="dropdown-item">
-            <a href="#">Sillas Gamer</a>
-        </div>
-    </div>
-</div>
+

@@ -2,6 +2,8 @@ from django.db import models
 from django.conf import settings
 
 from django.contrib.auth.models import User
+import os
+import uuid
 
 
 # Create your models here.
@@ -26,6 +28,13 @@ class Categoria(models.Model):
         return self.nombre
 
 
+def custom_upload_to_blog(instance, filename):
+    """Genera un nombre de archivo único basado en un UUID."""
+    nombre_base, extension = os.path.splitext(filename)
+    unique_id = uuid.uuid4().hex
+    return f"blog/{unique_id}{extension.lower()}"
+
+
 class Post(models.Model):
     """
     updated:
@@ -36,7 +45,7 @@ class Post(models.Model):
     contenido = models.TextField()  # Cambiado de CharField a TextField
 
     # para cambiar la ruta de guardado de imagenes, ademas pueda quedar vacio o en blanco
-    imagen = models.ImageField(upload_to='blog', null=True, blank=True)
+    imagen = models.ImageField(upload_to=custom_upload_to_blog, null=True, blank=True)
 
     # guarda automatico la fecha
     created = models.DateTimeField(auto_now_add=True)

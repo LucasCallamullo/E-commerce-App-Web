@@ -21,7 +21,7 @@ document.getElementById('overlay').addEventListener('click', function() {
 /* ==========================================================================================
                     Handle_Function para controlar los distintos eventos
 ========================================================================================== */
-async function handleActions(productId, action) {
+async function handleActions(productId, action, value = 1) {
     try {
         const response = await fetch('/carrito/update/', {
             method: 'POST',     // Especifica que el método de la solicitud es POST
@@ -31,7 +31,8 @@ async function handleActions(productId, action) {
             },
             body: new URLSearchParams({
                 'producto_id': productId, // Envía el ID del producto como parte del cuerpo de la solicitud
-                'action': action    // 'add', 'less', 'remove'
+                'action': action,    // 'add', 'less', 'remove'
+                'value': value    // value for quantity
             })
         });
 
@@ -40,11 +41,17 @@ async function handleActions(productId, action) {
         }
 
         const data = await response.json();
-        updateCart(data); // Actualiza la vista del carrito con los datos más recientes
+
+        // Actualiza la vista del WDIGET carrito con los datos más recientes
+        updateCart(data);
 
         // Muestra el carrito y el overlay
+        // Nota por algun motivo esto se tiene que ejecutar antes jeej
         document.getElementById('cart-container').classList.add('show');
         document.getElementById('overlay').classList.add('show');
+
+        // Actualiza la VIEW del carrito con los datos más recientes
+        updateCartView(data);
 
     } catch (error) {
         console.error('Error:', error); // Maneja y muestra cualquier error en la consola
@@ -55,11 +62,14 @@ async function handleActions(productId, action) {
                     Función para actualizar la vista del carrito
 ========================================================================================== */
 function updateCart(data) {
+    const badgeCantTotal = document.getElementById('badge-cart-button');
     const carritoTotal = document.getElementById('carrito-total');
     const carritoContent = document.getElementById('carrito-contenido');
 
     var precioTotal = formatNumberWithCommas(data.total);
-    carritoTotal.textContent = `Total: ${precioTotal}`;
+    carritoTotal.textContent = `$${precioTotal}`;
+
+    badgeCantTotal.textContent = `${data.cant_total}`;
 
     /* carritoTotal.textContent = `Total: $${data.total}`; */
     carritoContent.innerHTML = ''; // Borra el contenido actual del carrito
@@ -69,7 +79,7 @@ function updateCart(data) {
 
         const itemHTML = `
             <div class="cart-item position-relative mb-3 d-flex align-items-center">
-                <img src="${item.imagen}" class="img-fluid" alt="Product Image" style="width: 150px; height: auto; margin-right: 15px;">
+                <img src="${item.imagen}" class="img-fluid" alt="Product Image">
                 <div>
                     <h6>${item.nombre}</h6>
                     <p>${item.cantidad} × $${precioFormateado}</p>
@@ -134,13 +144,31 @@ function handleRemove(itemId) {
     const item = document.getElementById(itemId).closest('.cart-item');
     item.remove();
     // Lógica para eliminar el ítem del carrito
-    alert('Ítem eliminado');
+    // alert('Ítem eliminado');
 }
 
 // Reasignar eventos después de actualizar el carrito
 assignButtonEvents();
 
 
+// Función para obtener el valor del cookie por nombre actua como nuestro csrf token
+// Esta funcion se aplica en widget_carrito como en add_btn.js de producto js
 
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Comprueba si el cookie tiene el nombre deseado
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                // Extrae y decodifica el valor del cookie
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
 
 

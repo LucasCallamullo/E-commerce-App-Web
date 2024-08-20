@@ -14,7 +14,10 @@ def carrito_total(request):
     """
     carrito = Carrito(request)
     total = carrito.total
-    total_productos = len(carrito.items)
+
+    total_productos = 0
+    for key, item in carrito.items:
+        total_productos += item['cantidad']
 
     context = {
         'carrito_total': total,

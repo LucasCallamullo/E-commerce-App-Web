@@ -7,9 +7,52 @@ from django.contrib.auth import password_validation
 from registros.models import CustomUser
 
 
+PROVINCIAS_CHOICES = [
+    ('', 'Selecciona una provincia'),
+    ('Buenos Aires', 'Buenos Aires'),
+    ('Catamarca', 'Catamarca'),
+    ('Chaco', 'Chaco'),
+    ('Chubut', 'Chubut'),
+    ('CABA', 'Ciudad Autónoma de Buenos Aires'),
+    ('Córdoba', 'Córdoba'),
+    ('Corrientes', 'Corrientes'),
+    ('Entre Ríos', 'Entre Ríos'),
+    ('Formosa', 'Formosa'),
+    ('Jujuy', 'Jujuy'),
+    ('La Pampa', 'La Pampa'),
+    ('La Rioja', 'La Rioja'),
+    ('Mendoza', 'Mendoza'),
+    ('Misiones', 'Misiones'),
+    ('Neuquén', 'Neuquén'),
+    ('Río Negro', 'Río Negro'),
+    ('Salta', 'Salta'),
+    ('San Juan', 'San Juan'),
+    ('San Luis', 'San Luis'),
+    ('Santa Cruz', 'Santa Cruz'),
+    ('Santa Fe', 'Santa Fe'),
+    ('Santiago del Estero', 'Santiago del Estero'),
+    ('Tierra del Fuego', 'Tierra del Fuego'),
+    ('Tucumán', 'Tucumán')
+]
+
+
+class EditUserForm(forms.ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = ['first_name', 'last_name', 'email', 'phone', 'province', 'address']
+        widgets = {
+            'email': forms.EmailInput(attrs={'readonly': 'readonly'}),
+            'province': forms.Select(choices=PROVINCIAS_CHOICES),
+        }
+
+    phone = forms.CharField(max_length=20)
+    address = forms.CharField(max_length=250, required=False)
+    province = forms.ChoiceField(choices=PROVINCIAS_CHOICES, required=False)
+
+
 class LoginForm(forms.Form):
     """
-        Este es el formulario para logearse con una cuenta ya creada
+        Este es el formulario para logearse con una cuenta ya creada em el widget_registro
     """
     email = forms.EmailField(
         label="Email",
@@ -24,38 +67,9 @@ class LoginForm(forms.Form):
 
 class CustomUserCreationForm(UserCreationForm):
     """
-        Esto es parte del formulario para registrarse con una nueva cuenta
+        Esto es parte del formulario para registrarse con una nueva cuenta en la hoja "Registro"
 
     """
-
-    PROVINCIAS_CHOICES = [
-        ('', 'Selecciona una provincia'),
-        ('Buenos Aires', 'Buenos Aires'),
-        ('Catamarca', 'Catamarca'),
-        ('Chaco', 'Chaco'),
-        ('Chubut', 'Chubut'),
-        ('CABA', 'Ciudad Autónoma de Buenos Aires'),
-        ('Córdoba', 'Córdoba'),
-        ('Corrientes', 'Corrientes'),
-        ('Entre Ríos', 'Entre Ríos'),
-        ('Formosa', 'Formosa'),
-        ('Jujuy', 'Jujuy'),
-        ('La Pampa', 'La Pampa'),
-        ('La Rioja', 'La Rioja'),
-        ('Mendoza', 'Mendoza'),
-        ('Misiones', 'Misiones'),
-        ('Neuquén', 'Neuquén'),
-        ('Río Negro', 'Río Negro'),
-        ('Salta', 'Salta'),
-        ('San Juan', 'San Juan'),
-        ('San Luis', 'San Luis'),
-        ('Santa Cruz', 'Santa Cruz'),
-        ('Santa Fe', 'Santa Fe'),
-        ('Santiago del Estero', 'Santiago del Estero'),
-        ('Tierra del Fuego', 'Tierra del Fuego'),
-        ('Tucumán', 'Tucumán')
-    ]
-
     # le damos algunos formatos posibles
     email = forms.CharField(max_length=50, error_messages={
         'invalid': 'Ingrese una dirección de correo electrónico válida.'

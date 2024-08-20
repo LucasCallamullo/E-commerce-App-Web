@@ -12,7 +12,9 @@ from .forms import PostForm
 class PostCreateView(CreateView):
     model = Post
     form_class = PostForm
+
     template_name = 'blog/post_create.html'
+
     # Redirige a una página de éxito después de crear el post
     success_url = reverse_lazy('Blog')
 
@@ -54,7 +56,11 @@ def categoria(request, category_id):
     # Obtener todas las categorías
     categories_all = Categoria.objects.all()  # Obtiene todas las categorías disponibles
 
-    dict_contexto = {"categories_all": categories_all, "posts": posts_query}
+    # Categorie actual
+
+    dict_contexto = {"categories_all": categories_all,
+                     "posts": posts_query,
+                     "category": cat_id}
 
     return render(request, "blog/categoria.html", dict_contexto)
 

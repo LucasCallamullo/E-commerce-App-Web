@@ -1,49 +1,160 @@
+
+
 {% extends "tienda/base.html" %}
-
-
+{% load static %}
+{% load humanize %}
 
 {% block content %}
+<!-- Tomar en cuenta que gran parte de esta slide-bar reutiliza tod0 el sidebar del blog, por las dudas
+si se quiere buscar de donde vienen las clases en el gestion .css -->
 
-    {% load humanize %}
+<div class="container-fluid">
 
+    <div class="row">
+        <div class="btn-container-side-bar-top">
+            <!-- Se utiliza para agregar mas botones en este container -->
+            <button class="btn-sidebar-top px-lg-3"
+            onclick="window.location.href='{% url 'Producto' %}'">
+                <span> Todos Nuestros Productos </span>
+            </button>
 
+            {% if query %}
+                <button class="btn-sidebar-top px-lg-3">
+                    <span> Resultado de busqueda '{{query}}' </span>
+                </button>
+            {% endif %}
 
-    <h1 style="color: white;">&nbsp;&nbsp;Tienda</h1>
+            <!-- Se utiliza para agregar mas botones en este container -->
+            {% if category %}
+                <button class="btn-sidebar-top px-lg-3"
+                onclick="window.location.href='{% url 'Producto_Categoria' category.id %}'">
+                    <span> {{ category.nombre }} </span>
+                </button>
+            {% endif %}
 
-    <div class="container">
-        <!-- Mostrar el total del carrito -->
-        <div style="float: right;" id="carrito-total2">
-            <p style="color: white;">Total: ${{carrito_total}}</p>
-        </div>
-
-        <div class="row">
-
-            {% for producto in productos %}
-
-                <div class="col-3 mb-4">
-                    <div class="card">
-
-                        <div class="image-container">
-                            <img src="{{producto.imagen.url}}" class="card-img-top">
-                        </div>
-
-                        <div class="card-body">
-                            <h6 class="card-title">{{producto.nombre}}</h6>
-                            <p class="card-text">$&nbsp;{{ producto.precio|floatformat:0|intcomma }}</p>
-                        </div>
-
-                        <div class="card-footer text-center">
-                            <button id="add-to-cart-{{producto.id}}" class="btn btn-success">Agregar</button>
-                        </div>
-
-                    </div>
-                </div>
-
-            {% endfor %}
-
+            {% if sub_category %}
+                <button class="btn-sidebar-top px-lg-3"
+                onclick="window.location.href='{% url 'Producto_Subcategoria' category.id sub_category.id %}'">
+                    <span> {{ sub_category.nombre }} </span>
+                </button>
+            {% endif %}
         </div>
     </div>
 
+    <!-- TOP 10 BUTTON SIDE -->
+    <div class="row">
+        <button class="btn-sidebar-top-10 mb-3"><i class="fa fa-star px-lg-2"></i>Top 10</button>
+    </div>
 
 
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3 sidebar">
+            <h2>
+                Filtros
+            </h2>
+            <hr>
+
+            <!-- Search Form Categories -->
+            <div class="sidebar-search">
+                <form id="search-form" class="form-group">
+                    <!-- Datos de las categorias para pasar y filtrar -->
+                    <input type="text" id="search-input" class="form-control"
+                           placeholder="Search..." onfocus="this.value=''"
+                           data-cat-id="{{category.id}}"
+                           data-sub-cat-id="{{sub_category.id}}"
+                           data-query-top="{{query}}">
+                </form>
+            </div>
+
+            <hr>
+
+            <!-- Categories will be inserted here -->
+            <div class="sidebar-category">
+                <!-- Top button on side bar -->
+                <a href="{% url 'Producto' %}"><strong>Todas las Categorias</strong></a>
+
+                <!-- Cat = Category, sub_cats = Sub Category ; Se pasa del context Processor-->
+                {% for cat, sub_cats in categories_dropmenu.items %}
+                    <a href="{% url 'Producto_Categoria' cat.id %}"><strong>{{ cat.nombre }}</strong></a>
+
+                    {% if sub_cats %}
+                    <!-- Submenú with SubCategories -->
+                        <ul class="category-list">
+                            {% for sub_cat in sub_cats %}
+                                <li><a href="{% url 'Producto_Subcategoria' cat.id sub_cat.id %}">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;{{ sub_cat.nombre }}
+                                </a></li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <!-- ===============================================
+                    SEPARADOR MAIN_CONTENT
+         =============================================== -->
+        <!-- Main Content -->
+        <div class="col-md-9">
+            <!-- Container to display search results -->
+            <div class="container">
+                <!-- Donde mostramos los resultados de AJAX Requeste, ver producto/add_btn.js -->
+                <div id="search-results" class="row">
+
+                    {% for producto in productos %}
+                        <div class="col-3 mb-4">
+                            <div class="product-card">
+
+                                <!-- IMAGEN Producto-->
+                                <div class="image-container">
+                                    <!-- Recuadro en la esquina con funcionalidad -->
+                                    <button class="corner-box" onclick="alert('Botón de la esquina clicado')">
+                                        <i class="fas fa-expand-arrows-alt"></i>
+                                    </button>
+
+                                    {% if producto.imagenes.all %}
+                                        {% with first_image=producto.imagenes.first %}
+                                            <a href="{% url 'Producto_Item' producto.id %}">
+                                                <img src="{{ first_image.imagen.url }}" class="card-img-top" alt="Imagen del producto">
+                                            </a>
+                                        {% endwith %}
+                                    {% endif %}
+                                </div>
+
+
+                                <div class="product-info">
+                                    <a href="{% url 'Producto_Item' producto.id %}">
+                                        <p>{{producto.nombre}}</p>
+                                    </a>
+
+                                    <p style="color: green;"><strong>
+                                        Disponible
+                                    </strong></p>
+
+                                    <p><strong>
+                                        ${{ producto.precio_contado|floatformat:0|intcomma }}
+                                    </strong></p>
+
+                                    <button id="add-to-cart-{{producto.id}}" class="add-button px-lg-3">
+                                        Agregar
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
+
+
+
+{% block extra_scripts %}
+    <!-- JavaScript for Product Page -->
+    <script src="{% static 'producto/js/add_btn.js' %}"></script>
+{% endblock %}
+

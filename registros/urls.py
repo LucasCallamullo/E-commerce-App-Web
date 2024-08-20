@@ -9,5 +9,8 @@ urlpatterns = [
     path('registro/', views.registro, name="Registro"),
     path('registro_widget/', views.registro_widget, name="Registro_widget"),
     path('registtro_cerrar_session/', views.cerrar_session, name="Cerrar_session"),
+
+    # Profile Page User
+    path('profile/', views.profile_page, name="Profile_Page"),
 ]
 

@@ -76,6 +76,7 @@ TEMPLATES = [
                 # Para registrar mis propios context_processors "APP_NAME.context_processors.FUNCTION_NAME"
                 'carrito.context_processors.carrito_total',
                 'registros.context_processors.login_widget_form',
+                'producto.context_processors.get_categories_dropmenmu',
             ],
         },
     },
@@ -166,3 +167,11 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = "lucascallamullo98@gmail.com"
 # Esta es la pw que me dio gmail para usar
 EMAIL_HOST_PASSWORD = "wkbv fggx fymn rvnr"
+
+# para el context_proccesors producto dropmenu - se puede investigar mas, ya que hay mejores opcioes
+# pero requieren instalacion extra como redis o mechmad
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
+}

@@ -1,0 +1,373 @@
+
+
+{% extends "tienda/base.html" %}
+
+{% block extra_head %}
+        <!-- Cargar CSS o meta tags específicos de la página aquí -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+          integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+          crossorigin="anonymous">
+
+    <style>
+.profile-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+.profile-card {
+    width: 350px; /* Tamaño fijo para ambos recuadros */
+    height: 350px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: profile-fadeIn 1s ease-in-out;
+    animation-fill-mode: both;
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Hacer la imagen circular */
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.profile-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinear el contenido a la izquierda */
+    justify-content: flex-start; /* Alinear el contenido en la parte superior */
+    width: 100%;
+    padding: 5px;
+}
+
+.profile-contact span {
+    margin: 1px 0; /* Reducir el espacio vertical entre párrafos */
+    line-height: 0.9; /* Ajustar la altura de línea, donde 1.2 es un valor más compacto */
+    font-size: 1.1rem; /* Ajustar el tamaño de la fuente si es necesario */
+}
+
+
+.profile-info h1, .profile-contact p {
+    margin: 10px 0;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.text-muted {
+    color: #6c757d;
+}
+
+
+.edit-button {
+    background-color: #BC00C5; /* Color de fondo azul */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de la fuente */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a una mano al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Animación suave para cambios de color */
+}
+
+.edit-button:hover {
+    background-color: #BBBBBB; /* Color de fondo al pasar el cursor */
+}
+
+
+@keyframes profile-fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+
+
+
+
+
+.overlay {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.popup {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    width: 70%;
+}
+
+/* Mostrar el overlay y el popup cuando se agrega la clase show */
+.overlay.show,
+.popup.show {
+    display: block;
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between; /* Alinea el título a la izquierda y el botón a la derecha */
+    align-items: top; /* Centra verticalmente el contenido */
+    margin-bottom: 15px; /* Espacio inferior entre el header y el contenido del popup */
+}
+
+.popup-header h2 {
+    margin: 0; /* Quita el margen predeterminado del h2 */
+    font-size: 24px;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #ff0000; /* Cambia el color al pasar el cursor */
+}
+
+/* Estilo del formulario */
+.edit-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-form h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.edit-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.edit-form input, .edit-form select {
+    margin-bottom: 15px;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #218838;
+}
+
+
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="row">
+        <!-- Espaciado a la izquierda -->
+        <aside class="col-lg-1 p-0"></aside>
+
+        <!-- Barra de Categorías -->
+        <aside class="col-lg-10 p-0">
+
+            <div class="btn-container-side-bar-top" style="margin-left: -3%;">
+                <!-- Se utiliza para agregar mas botones en este container -->
+                <button class="btn-sidebar-top px-lg-3"
+                onclick="window.location.href='{% url 'Producto' %}'">
+                    <span> Todos Nuestros Productos </span>
+                </button>
+
+                <button class="btn-sidebar-top px-lg-3"
+                onclick="window.location.href='{% url 'Producto' %}'">
+                    <span> Mi Perfil </span>
+                </button>
+
+                {% if user.is_authenticated and user.is_superuser %}
+                    <!-- Contenido que se muestra si el usuario está autenticado y es un superusuario -->
+                    <button class="btn-sidebar-top px-lg-3"
+                    onclick="window.location.href='/admin/'">
+                        <span> ADMIN SITE </span>
+                    </button>
+                {% endif %}
+
+
+            </div>
+
+            <h2>Mis Datos</h2>
+        </aside>
+    </div>
+
+
+    <div class="row">
+        <!-- Espaciado a la izquierda -->
+        <aside class="col-lg-1 p-0"></aside>
+
+        <!-- Barra Mis Compras Mis Consultas -->
+        <aside class="col-lg-2 p-0"></aside>
+
+        <!-- Perfil -->
+        <aside class="col-lg-8 p-0">
+
+
+            <main class="profile-container">
+                <div class="profile-card">
+                    <div class="profile-image">
+                        <!-- Puedes reemplazar esta imagen por la imagen de perfil real -->
+                        <img src="https://via.placeholder.com/150" alt="Profile Picture">
+                    </div>
+                    <div class="profile-info">
+                        <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+                    </div>
+                    <hr>
+                    <!-- Botón para abrir el popup -->
+                    <button class="edit-button" id="edit-button" onclick="openPopup()">
+                        Editar Datos
+                    </button>
+
+                </div>
+
+                <div class="profile-card">
+                    <div class="profile-contact">
+                        <h5>{{ user.first_name }} {{ user.last_name }}</h5>
+                        <hr>
+
+                        <span class="text-muted">Celular:</span>
+                        <span>{{ user.phone }}</span>
+                        <hr>
+
+                        <span class="text-muted">Email:</span>
+                        <span>{{ user.email }}</span>
+                        <hr>
+
+                        <!-- { % if user.address % } { % endif % }-->
+                        <span class="text-muted">Dirección:</span>
+                        <span>{{ user.address }}</span>
+
+                    </div>
+                </div>
+            </main>
+
+
+        </aside>
+
+        <!-- Espaciado lateral -->
+        <aside class="col-lg-1 p-0"></aside>
+    </div>
+
+
+
+    <!-- Overlay y popup -->
+    <div id="overlay" class="overlay" onclick="closePopup()"></div>
+
+    <div id="popup" class="popup">
+
+        <form class="edit-form" method="POST" action="{% url 'Profile_Page' %}">
+            {% csrf_token %}
+            <div class="popup-header">
+                <h2>Editar Datos</h2>
+                <button id="close-popup" class="close-button">&times;</button>
+            </div>
+
+            <label for="first_name">Nombre:</label>
+            {{ form.first_name }}
+
+            <label for="last_name">Apellido:</label>
+            {{ form.last_name }}
+
+            <label for="email">Email:</label>
+            {{ form.email }}
+
+            <label for="phone">Teléfono:</label>
+            {{ form.phone }}
+
+            <label for="province">Provincia:</label>
+            {{ form.province }}
+
+            <label for="address">Dirección:</label>
+            {{ form.address }}
+
+            <button type="submit" class="submit-button">Guardar</button>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+</div>
+
+<script>
+// Botón para abrir el popup
+document.getElementById('edit-button').addEventListener('click', function() {
+    document.getElementById('popup').classList.add('show');
+    document.getElementById('overlay').classList.add('show');
+});
+
+// Botón para cerrar el popup
+document.getElementById('close-popup').addEventListener('click', function() {
+    document.getElementById('popup').classList.remove('show');
+    document.getElementById('overlay').classList.remove('show');
+});
+
+// Cerrar el popup al hacer clic en el overlay
+document.getElementById('overlay').addEventListener('click', function() {
+    document.getElementById('popup').classList.remove('show');
+    document.getElementById('overlay').classList.remove('show');
+});
+
+</script>
+
+{% endblock %}
+
+
+

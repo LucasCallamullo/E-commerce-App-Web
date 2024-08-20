@@ -22,13 +22,21 @@
 
 {% block content_blog %}
 
-    <div class="flex-container p-3 mt-3 card-blog shadow-sm">
-        <!-- Parte superior: Foto de perfil, Usuario, y Tiempo de publicación -->
+    <h3 class="mt-3">Todos los Posts </h3>
+
+    {% for post in posts %}
+
+    <div class="flex-container p-3 mt-3 mb-3 card-blog shadow-sm">
+        <!-- =========================================================================
+            Parte superior: Foto de perfil, Usuario, y Tiempo de publicación
+         ========================================================================= -->
         <div class="d-flex align-items-center justify-content-between mb-3">
             <div class="d-flex align-items-center">
+                <!-- FOTO PERFIL USUARIO -->
                 <img src="https://i.imgur.com/rvQ3LAt.jpg" width="50" class="rounded-circle me-3">
                 <div class="d-flex flex-column">
-                    <h6 class="mb-0">Thomas Hope</h6>
+                    <!-- NOMBRE Y ULTIMA CONEXION -->
+                    <h6 class="mb-0">{{post.autor_name}}</h6>
                     <span class="text-muted small days-ago">2 days ago</span>
                 </div>
             </div>
@@ -37,13 +45,15 @@
             </button>
         </div>
 
-        <!-- Imagen del post y Contenido -->
+        <!-- =========================================================================
+                            Imagen del post y Contenido
+         ========================================================================= -->
         <div class="row">
             <div class="col-md-4">
                 <div class="position-relative snipimage">
                     <!-- FOTO POST -->
-                    <img src="{{ post.imagen.url }}" class="rounded img-fluid img-responsive">
-                    <span class="position-absolute user-timing">1 min</span>
+                    <img src="{{ post.imagen.url }}" class="rounded img-fluid w-100 img-responsive">
+                    <span class="position-absolute user-timing"> 1 min </span>
                 </div>
             </div>
 
@@ -51,12 +61,15 @@
                 <!-- Primera fila: Título, descripción, vistas y likes -->
                 <div class="first-row">
                     <div class="d-flex align-items-center">
-                        <h5 class="mb-1">How to do basic jumping</h5>
+                        <h5 class="mb-1"> {{ post.titulo }} </h5>
                     </div>
                     <p class="text-muted small mb-2">
-                        A brief description or excerpt of the blog post could go here.
+                        {{ post.contenido }}
                     </p>
 
+
+
+                    <!-- Random Views y Likes , revisar otro día -->
                     <div class="d-flex justify-content-md-start justify-content-between views-content mt-2">
                         <div class="d-flex flex-row align-items-center me-3">
                             <i class="fa fa-eye"></i>
@@ -71,6 +84,14 @@
 
                 <!-- Segunda fila: Botones de interacción -->
                 <div class="second-row d-flex justify-content-end post-buttons mt-2">
+
+                    <!-- Categorias del post -->
+                    <div class="text-muted medium text-cat-medium">
+                        Categoría:
+                        {% for categoria in post.categorias.all %}
+                            {{ categoria.nombre }}{% if not forloop.last %} - {% endif %}
+                        {% endfor %}
+                    </div>
 
                     <button class="btn-blog">
                         <i class="fa fa-comment"></i>
@@ -92,8 +113,9 @@
 
         </div>
     </div>
+    {% endfor %}
 
-    {% endblock %}
+{% endblock %}
 
 
 

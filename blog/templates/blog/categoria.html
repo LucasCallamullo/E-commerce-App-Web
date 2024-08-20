@@ -25,9 +25,11 @@
 
 {% block content_blog %}
 
+    <h3 class="mt-3">Categoría: {{ category }}</h3>
+
     {% for post in posts %}
 
-    <div class="flex-container p-3 mt-3 card-blog shadow-sm">
+    <div class="flex-container p-3 mt-3 mb-3 card-blog shadow-sm">
         <!-- =========================================================================
             Parte superior: Foto de perfil, Usuario, y Tiempo de publicación
          ========================================================================= -->
@@ -83,6 +85,14 @@
 
                 <!-- Segunda fila: Botones de interacción -->
                 <div class="second-row d-flex justify-content-end post-buttons mt-2">
+
+                    <!-- Categorias del post -->
+                    <div class="text-muted medium text-cat-medium">
+                        Categoría:
+                        {% for categoria in post.categorias.all %}
+                            {{ categoria.nombre }}{% if not forloop.last %} - {% endif %}
+                        {% endfor %}
+                    </div>
 
                     <button class="btn-blog">
                         <i class="fa fa-comment"></i>

@@ -6,14 +6,35 @@ from django.views.generic import View
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 
-
 from django.shortcuts import render, redirect
 
 from registros.forms import CustomUserCreationForm
 from registros.forms import LoginForm
 
-
 from django.http import JsonResponse
+
+# This is for edit form
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.contrib.auth import update_session_auth_hash
+from registros.forms import EditUserForm
+
+
+@login_required
+def profile_page(request):
+    if request.method == 'POST':
+        form = EditUserForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()  # Guarda los cambios en el usuario
+
+            # Actualizar la sesión del usuario para reflejar los cambios
+            update_session_auth_hash(request, request.user) # Proteccion de la contraseña
+            messages.success(request, '¡Perfil actualizado con éxito!')
+            return redirect('Profile_Page')  # Redirige a la página de perfil o a donde prefieras
+    else:
+        form = EditUserForm(instance=request.user)
+
+    return render(request, 'registros/profile_page.html', {'form': form})
 
 
 def registro_widget(request):
@@ -104,8 +125,6 @@ def registro_widget2(request):
                 # Si el formulario no es válido o la autenticación falla, redirige a la misma página
                 return redirect(request.META.get('HTTP_REFERER', 'Home'))
 
-
-
     # En caso de GET, redirige a la página principal o muestra un error
     # return redirect('Home')
 
@@ -159,6 +178,10 @@ def registro(request):
     context = {'form': form, 'form_submitted': form_submitted}
 
     return render(request, 'registros/registro.html', context)
+
+
+
+
 
 
 
