@@ -1,0 +1,1916 @@
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif; /* Usa Montserrat como fuente principal */
+    font-weight: 700; /* Peso normal para Montserrat */
+}
+
+p   {
+    line-height: 1.75;
+    font-family: 'Montserrat', sans-serif; /* Usa Montserrat como fuente principal */
+    font-weight: 700; /* Peso normal para Montserrat */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif; /* Usa Montserrat como fuente principal */
+    font-weight: 700; /* Peso normal para Montserrat */
+    background-color: #F6F6F6;  /* Color de fondo sólido */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+a  {
+    color: black !important;
+    text-decoration: none !important;
+    font-family: 'Montserrat', sans-serif; /* Usa Montserrat como fuente principal */
+    font-weight: 500; /* Peso normal para Montserrat */
+}
+
+.btn {
+    outline: none !important; /* Elimina el contorno con !important #780178; */
+    box-shadow: none !important; /* Elimina cualquier sombra */
+    border: none !important; /* Asegura que no haya borde con !important */
+    font-family: 'Montserrat', sans-serif; /* Usa Montserrat como fuente principal */
+    font-weight: 500; /* Peso normal para Montserrat */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+    outline: none !important; /* Elimina el contorno con !important */
+    border: none !important; /* Asegura que no haya borde con !important */
+    box-shadow: none !important; /* Elimina cualquier sombra */
+}
+
+.form-control:focus {
+    outline: none; /* Elimina el contorno predeterminado del navegador */
+    border: none;
+}
+
+.my-container-center {
+    display: flex;
+    align-items: center; /* Alinea verticalmente */
+    justify-content: center; /* Alinea horizontalmente */
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+}
+
+
+
+/* ============================================================================
+                         LOGO PAGE - HEAD - BASE.html todo
+============================================================================ */
+/* Tamaño base para pantallas grandes */
+.my-container-header {
+    background-color: #780178; /* Violeta claro */
+    align-items: center; /* Alinea verticalmente los elementos */
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+
+}
+
+.my-container-header::before,
+.my-container-header::after {
+    /*
+    This pseudo-element is used to visually extend the background color of the
+    .my-container-header beyond its content area, simulating the effect of a bottom margin
+    while maintaining the same background color. This helps to visually separate
+    the header from the content below without breaking the background.
+    */
+    content: '';
+    display: block;
+    height: 10px; /* Tamaño del margen */
+    background-color: #780178; /* Mismo color de fondo */
+}
+
+/*  LOGO STUFF */
+.my-logo {
+    width: 120%; /* Ajusta el ancho según tus necesidades */
+    height: auto; /* Mantiene la proporción de la imagen */
+    max-height: 110px; /* Fija la altura máxima */
+    z-index: 10; /* Necesario cuando utilizamos un width o height superior al 100% ,
+    tambien su contenedor debe tenerlo */
+}
+
+/*  SEARCH BAR STUFF */
+.my-search-top-bar {
+    width: 80%; /* Ajusta el ancho según tus necesidades */
+    height: 60px;
+}
+
+.my-search-top-bar .form-control {
+    padding-left: 4%; /* esto es para el placeholder se vea mejor */
+    border-radius: 20px;    /* Esto es para bodear ambos con un contorno circular*/
+}
+
+.my-search-top-bar .btn {
+    background-color: #5878FF;
+    border-radius: 20px;    /* Esto es para bodear ambos con un contorno circular*/
+}
+
+/* ICON HEAD CONTAINER STUFF */
+.my-btn-header-icon {
+    background-color: transparent;
+    border-radius: 50%; /* Hacer los botones circulares */
+    height: 60px; /* Ajusta la altura del botón */
+    width: 60px;  /* Ajusta el ancho del botón para mantener la forma circular */
+
+    display: flex;  /* esto es para que los iconos de adentro esten centrados */
+    justify-content: flex-end;
+    align-items: center;
+
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.my-btn-header-icon i {
+    font-size: 24px; /* Tamaño de los íconos */
+    color: white; /* Color del ícono */
+    transition: color 0.3s;
+    transition:all 0.3s linear;
+}
+
+.my-btn-header-icon:hover {
+    background-color: rgba(1, 1, 255, 0.3);  /* Color de fondo al pasar el ratón */
+}
+
+.my-btn-header-icon:hover i {
+    color: #5878FF; /* Color del ícono al pasar el ratón */
+    color:#fff;
+    font-size:40px;
+}
+/* =====================================================================================
+                                    BARRA DROP CONTENT TIPO PRODUCTO todo
+/* ===================================================================================== */
+/* Estilo del contenedor */
+.cats-container {
+    position: relative;
+    right: 0;
+    top: 0;
+    width: 120%; /* Ancho del contenedor */
+    height: 40px; /* Altura del contenedor */
+    z-index: 10; /* Necesario cuando utilizamos un width o height superior al 100% */
+
+    padding: 0;
+    margin: 0;
+}
+
+/* Botón del drop menu categories */
+.cats-button {
+    background-color: #AC23AC;
+    color: white;
+    cursor: pointer;
+
+    width: 120%; /* Ajusta el botón al ancho del contenedor */
+    height: 100%;
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total del botón */
+
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: flex-start; /* Alinea el contenido al inicio (izquierda) */
+}
+
+.cats-button i {
+    padding: 0 10px; /* Añade padding a los íconos, ajusta los valores según sea necesario */
+    color: #181818;
+}
+
+.cats-button:hover,
+.cats-button:hover i {
+    color: #fff;
+}
+
+/* Arrow con evento rotate para mas animaciones en el menu */
+.arrow {
+    position: absolute;
+    right: 1px;
+    top: 30%;
+    transition: transform 0.3s ease;
+} .rotate { transform: rotate(180deg); }
+
+/* Estilo para el menú desplegable principal */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+
+    top: 100%; /* Muestra el menú debajo del botón */
+    left: 0;
+    width: 120%; /* Ajusta el ancho al del contenedor */
+
+    background-color: #fff; /* Fondo blanco */
+    border-left: 3px solid #780178; /* Borde izquierdo */
+    border-right: 3px solid #780178; /* Borde derecho */
+    border-bottom: 3px solid #780178; /* Borde inferior */
+    border-top: 3px solid #780178; /* Sin borde superior */
+
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0;
+    margin: 0;
+    z-index: 1000; /* Asegura que el menú esté sobre otros elementos */
+
+    overflow: hidden; /* Esconde el contenido que desborda */
+    max-height: 0; /* Oculta el menú por defecto */
+    opacity: 1; /* Establece la opacidad inicial */
+    transition: max-height 0.5s ease, opacity 0.5s ease; /* Transición suave para max-height y opacidad */
+}
+.dropdown-menu.show {
+    display: block;
+    max-height: 500px; /* Ajusta según el contenido máximo esperado */
+    opacity: 1; /* Hace el menú completamente visible */
+    /* overflow: visible;  Permite el desbordamiento durante la animación */
+    animation: slideDown 0.5s ease forwards; /* Aplica la animación */
+}
+
+/* Animación para el menú desplegable */
+@keyframes slideDown {
+    from {
+        max-height: 0;
+        opacity: 1;
+    }
+    to {
+        max-height: 500px; /* Ajusta según el contenido máximo esperado */
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        max-height: 500px; /* Ajusta según el contenido máximo esperado */
+        opacity: 1;
+    }
+    to {
+        max-height: 0;
+        opacity: 1;
+    }
+}
+
+/* esto es para darle formato a items con mas de un subitem */
+.container-dropdown-menu-items {
+    display: flex; /* Activa flexbox en el contenedor */
+    align-items: center; /* Alinea verticalmente el contenido */
+    justify-content: space-between; /* Distribuye el espacio entre los elementos, uno a cada lado */
+}
+
+.container-dropdown-menu-items i {
+    margin-left: auto; /* Asegura que el ícono esté alineado a la derecha */
+}
+
+/* Estilo para los ítems del menú principal */
+.dropdown-menu .dropdown-item {
+    padding: 3px 5px; /* top - right - bottom - left */
+    border-bottom: 0.5px solid #780178; /* Borde inferior */
+    position: relative; /* Necesario para el posicionamiento del submenú */
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 5px 10px; /* Ajusta el padding para los enlaces */
+}
+
+/* Estilo para los elementos dentro del submenú */
+.dropdown-menu a:hover,
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .sub-dropdown-content a:hover {
+    background-color: #E4E4E4;
+}
+
+/* Submenú */
+.dropdown-menu .sub-dropdown-content {
+    display: none;
+    position: absolute;
+    top: 0; /* Alinea el submenú a la misma altura que el ítem principal */
+    left: 100%; /* Posiciona el submenú a la derecha del ítem principal */
+
+    width: 100%; /* Ajusta el submenú al ancho del ítem principal */
+
+    background-color: #fff; /* Fondo blanco */
+    border-left: 2px solid #780178; /* Borde izquierdo */
+    border-right: 2px solid #780178; /* Borde derecho */
+    border-bottom: 2px solid #780178; /* Borde inferior */
+    border-top: 2px solid #780178; /* Sin borde superior */
+
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0;
+    margin: 0;
+    z-index: 1000; /* Asegura que el menú esté sobre otros elementos */
+}
+
+.dropdown-menu .dropdown-item:hover .sub-dropdown-content {
+    display: block;
+}
+
+/* =====================================================================================
+                                BOTONES TEXTO BASE HEADER STUFF
+/* ===================================================================================== */
+
+/* Estilos para los botones */
+.navbar-nav .nav-item {
+    display: flex;
+    align-items: center;    /* Alinea el contenido dentro del nav-bar verticalmente */
+    justify-content: center; /* Distribuye el espacio entre los elementos, uno a cada lado */
+    position: relative;
+}
+
+.navbar {
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.navbar-nav {
+    padding-left: 0;
+    margin-left: -2%; /* Ajusta el valor según sea necesario */
+}
+
+.nav-item-texts-tabs {
+    /* Margen */
+    margin-left: 4px;  /* Ajusta el valor según sea necesario */
+    margin-right: 4px; /* Ajusta el valor según sea necesario */
+    height: 30px;
+}
+
+.btn-header-text {
+    background-color: #780178; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    min-width: 100px;
+    height: 30px;
+}
+/* Estilo para el botón activo */
+.btn-header-text:hover,
+.active,
+.nav-item.active .btn {
+    background-color: #580156; /* Cambia este color al que prefieras */
+    color: #fff; /* Cambia el color del texto si es necesario */
+}
+/*
+                CAROUSEL STUFFF     min-height: 350px; todo
+*/
+/* Establece que el contenedor padre ocupe el 100% de la altura disponible */
+.carousel-inner {
+    height: calc(100vh - 170px); /* Resta la altura de otros elementos del header */
+    width: 100%;
+}
+
+/* Cada item del carrusel ocupa el 100% de la altura del contenedor padre  height: 70vh; */
+.carousel-item {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+.slide-one {
+    background-image: url('https://cdn.shopify.com/s/files/1/0012/4957/4961/files/Redragon_H520_Icon_Wired_Gaming_Headset.jpg?v=1621578895');
+}
+
+.slide-two {
+    background-image: url('https://redragon.es/content/uploads/2021/06/Megamenu-Refrigeracion-1500x1182-1.jpg');
+}
+
+.slide-three {
+    background-image: url('https://redragon.es/content/uploads/2021/10/HEROS-S129W-BA.jpg');
+}
+
+.carousel-caption {
+    bottom: 5%; /* Mantiene el ajuste de la posición vertical */
+    left: 10%; /* Ajusta la distancia desde el lado derecho */
+    right: auto; /* Asegura que la posición izquierda no interfiera */
+    transform: none; /* Elimina cualquier transformación previa */
+    text-align: center; /* Opcional: Alinea el texto hacia la derecha */
+
+}
+
+.carousel-caption h3 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center; /* Opcional: Alinea el texto hacia la derecha */
+}
+
+.carousel-caption p {
+    font-size: 1.5rem;
+    text-align: center; /* Opcional: Alinea el texto hacia la derecha */
+}
+/*
+        FOOTER STUFF
+*/
+.icon-container-footer .btn {
+    background-color: transparent;
+    border: none;
+    border-radius: 50%; /* Hacer los botones circulares */
+    height: 60px; /* Ajusta la altura del botón */
+    width: 60px;  /* Ajusta el ancho del botón para mantener la forma circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+.icon-container-footer .btn .icon {
+    font-size: 24px; /* Tamaño de los íconos */
+    color: white; /* Color del ícono */
+    transition: color 0.3s;
+
+    transition:all 0.3s linear;
+}
+
+.icon-container-footer .btn:hover .icon {
+    color: #5878FF; /* Color del ícono al pasar el ratón */
+    color:#fff;
+    font-size:40px;
+}
+
+.icon-container-footer .btn:hover {
+    background-color: rgba(1, 1, 255, 0.2);  /* Color de fondo al pasar el ratón */
+}
+
+
+.icon-container-footer .btn:hover::after {
+    opacity:1;
+    transform:scale(0.8);
+
+}
+
+
+.icon-container-footer .btn::after {
+    content:"";
+    position:absolute;
+    height:inherit;
+    width:inherit;
+    border-radius:50%;
+    opacity:0;
+    z-index:-1;
+    transition:all 0.3s linear;
+}
+
+.icon-container-footer {
+    display: flex; /* Activar Flexbox */
+    justify-content: flex-start; /* Alinea los íconos al principio del contenedor */
+
+}
+/* ==================================================================================
+                Estilo del WIDGET_REGISTRO de usuario todo
+/* ================================================================================== */
+/* Estilo del botón de usuario */
+.nav-move-left {
+    /* esto se pone para mover el icono por ahora fue la mejor forma que encontre */
+    margin-left: 180px;
+}
+
+.btn-header {
+    position: relative; /* Añade posicionamiento relativo al contenedor */
+    background-color: transparent; /* Fondo transparente por defecto */
+    height: 35px; /* Ajusta la altura del botón */
+    width: 60px;  /* Ajusta el ancho del botón para mantener la forma circular */
+
+    border: none; /* Elimina cualquier borde que pueda crear relieve */
+    outline: none; /* Elimina el contorno al hacer clic */
+}
+
+.btn-header i {
+    font-size: 24px; /* Tamaño de los íconos */
+    color: white; /* Color del ícono */
+    pointer-events: none; /* Asegura que el icono no bloquee los clics */
+    transition: color 0.3s ease; /* Añade una transición suave para el cambio de color */
+    border: none; /* Elimina cualquier borde que pueda crear relieve */
+    outline: none; /* Elimina el contorno al hacer clic */
+}
+
+.badge {
+    position: absolute; /* Posicionamiento absoluto para el badge */
+    top: -10px; /* Ajusta el valor según sea necesario */
+    right: -6px; /* Ajusta el valor según sea necesario */
+    background-color: #780178; /* Color de fondo del badge */
+    color: white; /* Color del texto del badge */
+    border-radius: 50%; /* Hace que el badge sea circular */
+    padding: 5px 10px; /* Ajusta el padding según sea necesario */
+    font-size: 15px; /* Tamaño de la fuente del badge */
+}
+
+.btn-header:hover {
+    background-color: #fff; /* Fondo transparente al pasar el ratón */
+}
+
+.btn-header:hover i {
+    color: black; /* Cambia el color del ícono a blanco al pasar el ratón */
+}
+
+.btn-header:focus {
+    outline: none; /* Elimina el contorno predeterminado */
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo blanco semitransparente cuando está enfocado */
+}
+
+.btn-header:focus i {
+    color: white; /* Mantiene el ícono en blanco cuando está enfocado */
+}
+
+/* Estilo del contenedor del usuario */
+.user-container {
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+#user-dropdown {
+    right: 0; /* Alinea el dropdown a la derecha del botón */
+    padding: 15px;
+    width: 250px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5); /* Efecto de sombra */
+}
+
+/* Estilo de los inputs y el botón dentro del dropdown */
+#user-dropdown input[type="email"],
+#user-dropdown input[type="password"],
+#user-dropdown button {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#user-dropdown button {
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#user-dropdown button:hover {
+    background-color: #444;
+}
+
+/* Clase para el contenedor de los botones cuando la sesión está iniciada */
+#user-dropdown-auth {
+    right: 0;
+    width: 300px;
+    padding: 15px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5); /* Efecto de sombra */
+}
+
+/* Estilos para los botones */
+#user-dropdown-auth .register-auth-btn {
+    background-color: #fff;
+    color: black;
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 16px; /* Ajusta el tamaño de la fuente */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center; /* Alinea verticalmente íconos y texto */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Efecto de sombra */
+}
+
+/* Ajustar tamaño del ícono dentro del botón */
+#user-dropdown-auth .register-auth-btn i {
+    font-size: 1.5em; /* Ajusta el tamaño del ícono */
+    margin-right: 8px; /* Espacio entre ícono y texto */
+}
+
+/* Efecto al pasar el mouse */
+#user-dropdown-auth .register-auth-btn:hover {
+    background-color: #8200F5;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al hover */
+}
+
+/* Efecto de enfoque */
+#user-dropdown-auth .register-auth-btn:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto al hacer clic */
+#user-dropdown-auth .register-auth-btn:active {
+    background-color: #3e8e41;
+    transform: scale(0.95);
+}
+
+.toast-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 16px;
+    z-index: 1000;
+    width: 25%
+}
+
+.toast {
+    display: none;
+    color: white;
+    border: none;
+    padding: 3px 3px;
+    border-radius: 0.375rem; /* Bootstrap rounded-pill */
+    box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+    margin-bottom: 8px; /* Space between toasts */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.toast .toast-icon {
+    width: 32px; /* Tamaño del icono */
+    height: 32px;
+    background-color: rgba(255, 1, 1, 0.3); /* Fondo semi-transparente para advertencia */
+    border-radius: 50%; /* Hacer el fondo circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem; /* Tamaño del icono */
+    color: #fff; /* Color del icono de advertencia */
+    margin-right: 1rem; /* Espaciado a la derecha del icono */
+    margin-left: 1rem; /* Espaciado a la derecha del icono */
+    border: 1px solid #000; /* Borde negro con grosor de 2px */
+}
+
+.toast.show {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast.hide {
+    opacity: 0;
+    transform: translateY(-20px); /* Moves the toast up as it hides */
+}
+
+.toast-success {
+    background-color: #28a745; /* Bootstrap success color */
+}
+
+.toast-error {
+    background-color: #FC2424; /* Bootstrap danger color */
+}
+
+
+
+
+/* Estilo para el contenido del dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    opacity: 0;
+    transform: translateY(0px);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+/* Mostrar el cuadro con una transición suave */
+.dropdown-content.show {
+    display: block;
+    opacity: 1;
+    border-left: 2px solid #780178; /* Borde izquierdo */
+    border-right: 2px solid #780178; /* Borde derecho */
+    border-top: 2px solid #780178; /* Borde Superior */
+    border-bottom: 2px solid #780178; /* Borde inferior */
+}
+
+/* ================================================================================
+    PIE DE PAGINAAAAAAAAAAAAAAAAAAAAAAAAAAAAA todo
+/* ================================================================================ */
+/* Estilos básicos del footer */
+.footer {
+    background-color: #780178; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    padding: 20px 50px; /* Espaciado arriba y abajo */
+
+    width: 100%; /* Ancho máximo del contenedor */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total del enlace */
+}
+
+.footer-container {
+    width: 100%; /* Ancho máximo del contenedor */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total del enlace */
+
+    display: flex; /* Flexbox para alineación en fila */
+    justify-content: space-between; /* Espacio entre las columnas */
+}
+
+.footer-column {
+    flex: 1; /* Cada columna ocupa un tercio del espacio disponible */
+    padding: 20px;
+}
+
+/* Estilos para el logo */
+.footer-logo {
+    max-width: 250px; /* Tamaño máximo del logo */
+    margin-bottom: 10px;
+}
+
+/* Estilos para el texto */
+.footer-text {
+    font-size: 14px; /* Tamaño de fuente */
+    line-height: 1.5; /* Espaciado entre líneas */
+    margin: 0; /* Sin margen */
+}
+
+
+.footer-text-final {
+    text-align: center;
+    padding: 10px 10px;
+}
+
+.btn-footer {
+    font-size: 1.1em; /* Ajusta el tamaño del ícono y el texto */
+    background-color: #780178; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+
+    border: none; /* Quita el borde del botón */
+    padding: 10px; /* Espaciado interno del botón */
+    display: flex; /* Alinea el contenido del botón horizontalmente */
+    align-items: center; /* Centra verticalmente el contenido dentro del botón */
+    margin: 0; /* Elimina el margen predeterminado */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves para el hover */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.btn-footer i {
+    font-size: 1.8em; /* Tamaño del ícono dentro del botón */
+    margin-right: 10px; /* Espacio entre el ícono y el texto */
+}
+
+.btn-footer:hover {
+    background-color: #6c004a; /* Color de fondo más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Leve zoom al pasar el mouse */
+}
+
+.btn-footer:focus {
+    outline: none; /* Quita el borde de enfoque */
+    box-shadow: none; /* Quita la sombra alrededor del botón */
+}
+
+.btn-footer:active {
+    background-color: #5a003e; /* Color de fondo más oscuro al hacer clic */
+    transform: scale(0.95); /* Efecto de presionar el botón */
+}
+
+/*
+# =============================================================================
+            CONTENEDOR FORMULARIO CONTACTO todo
+# =============================================================================
+*/
+.row-contact {
+    padding: 50px;
+}
+
+.contenedorFormulario {
+    background-color: #333;
+    background: #333;
+
+    width: 100%;
+    margin: 20px auto;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.contenedorFormulario label {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.contenedorFormulario input[type="text"],
+.contenedorFormulario input[type="email"],
+.contenedorFormulario input[type="celular"],
+.contenedorFormulario input[type="producto"],
+.contenedorFormulario textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* #25D366 */
+.form-contact-btn i {
+    margin-right: 8px;
+    font-size: 1.5em; /* Tamaño del ícono dentro del botón */
+}
+
+.btn-submit {
+    background-color: #6a0dad;
+}
+
+.btn-wsp {
+    background-color: #25D366;
+}
+
+.form-contact-btn {
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    width: 35%;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+}
+
+input[type="submit"]:hover, input[type="button"]:hover {
+    background-color: #5a0c9f;
+}
+
+/*
+# =============================================================================
+#                       CONTENEDOR BLOG STUFF   todo
+# =============================================================================
+*/
+.linksCategorias{
+    color: white !important;
+    text_decoration: underline;
+
+}
+
+.custom-margin {
+    margin-right: 20px; /* Ajusta el margen derecho según tus necesidades */
+}
+
+.custom-margin-left {
+    margin-left: 20px; /* Ajusta el margen izquierdo según tus necesidades */
+}
+
+/* Estilo general de la barra lateral */
+.sidebar {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    /* height: 100vh;  100vh; Asegura que la barra lateral ocupe toda la altura del contenedor */
+    /* overflow-y: auto;  Permite desplazarse si el contenido es largo */
+}
+
+/* Espaciado entre ítems de la barra lateral */
+.sidebar-item {
+    margin-bottom: 15px;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: #212529; /* Color del texto */
+    padding: 10px; /* Añade relleno dentro de cada enlace */
+    border-radius: 0.375rem; /* Bordes redondeados */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Transiciones suaves */
+}
+
+/* Estilo al pasar el mouse por encima de los enlaces */
+.sidebar-link:hover {
+    background-color: #e9ecef; /* Fondo gris claro al pasar el mouse */
+    color: #212529; /* Mantiene el color negro del texto */
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+/* Estilo de los iconos en la barra lateral */
+.sidebar-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: #780178; /* Color del icono */
+}
+
+/* Estilo del texto en la barra lateral */
+.sidebar-text {
+    font-size: 1rem;
+}
+
+/* Categorías de la barra lateral */
+.sidebar-category {
+    margin-top: 20px;
+}
+
+/* Estilo del título de la categoría */
+.sidebar-category a {
+    display: block; /* Hace clickeable tod0 el área del enlace */
+    padding: 5px 10px; /* Añade relleno dentro del enlace de la categoría */
+    text-decoration: none; /* Elimina el subrayado */
+    color: #212529; /* Color del texto */
+    border-radius: 0.375rem; /* Bordes redondeados */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Transiciones suaves */
+}
+
+/* Estilo al pasar el mouse por encima de las categorías */
+.sidebar-category a:hover {
+    background-color: #e9ecef; /* Fondo gris claro al pasar el mouse */
+    text-decoration: none; /* Elimina el subrayado */
+    color: #212529; /* Mantiene el color negro del texto */
+}
+
+/* Lista de categorías */
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 0.375rem; /* Bordes redondeados del ul */
+    transition: background-color 0.3s ease-in-out; /* Transición suave */
+}
+
+/* Elementos de la lista de categorías */
+.category-list li {
+    margin-bottom: 5px;
+    padding: 5px 10px; /* Añade relleno para hacer el contenedor completo clickeable */
+    border-radius: 0.375rem; /* Bordes redondeados */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Transiciones suaves */
+}
+
+/* Enlaces de la lista de categorías */
+.category-list li a {
+    text-decoration: none;
+    color: #212529; /* Color del texto de las categorías */
+    display: block; /* Hace que tod0 el área de padding del li sea clickeable */
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilo al pasar el mouse por encima de los elementos de la lista de categorías */
+.category-list li:hover {
+    background-color: #e9ecef; /* Fondo gris claro al pasar el mouse */
+    text-decoration: none; /* Elimina el subrayado */
+    color: #212529; /* Mantiene el color negro del texto */
+}
+
+/* Estilo del separador (hr) */
+.sidebar hr {
+    border-top: 3px solid #dee2e6; /* Hace el hr más grueso */
+    margin: 20px 0; /* Espaciado superior e inferior */
+    width: 100%; /* Asegura que el hr ocupe tod0 el ancho */
+}
+
+/*
+    CARD BLOG / BLOGS PRESENTACION
+*/
+.card-blog {
+    border: none;
+    background-color: #252836;
+    color: #fff;
+    border-radius: 10px;
+    position: relative;
+}
+
+.text-cat-medium {
+    font-size: 0.9rem; /* Ajusta el tamaño de la fuente si es necesario */
+    width: 80%;
+}
+
+.days-ago {
+    color: #606271;
+    font-size: 12px;
+}
+
+.user-timing {
+    right: 9px;
+    bottom: 9px;
+    color: #fff;
+}
+
+.views-content {
+    color: #606271;
+}
+
+.views {
+    font-size: 12px;
+}
+
+.snipimage {
+    width: 300px; /* Ajusta según tu diseño */
+    height: 200px; /* Ajusta según tu diseño */
+    overflow: hidden;
+    position: relative;
+}
+
+.snipimage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Usa cover para cubrir el contenedor, ajusta según sea necesario */
+}
+
+.dots-button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+
+    border-radius: 50%; /* Hace que el botón sea circular */
+    align-self: flex-start; /* Alinea el botón hacia arriba */
+    /* margin-top: -5px;  Opcional: Ajusta la posición hacia arriba */
+    /* margin-right: -10px;  Opcional: Ajusta la posición hacia arriba */
+}
+
+.dots-button:hover {
+    color: #ccc;
+    border-color: #ccc; /* Cambia el color del borde al hacer hover */
+}
+
+.first-row {
+    margin-bottom: 82px; /* Añade un espacio entre la primera y segunda fila */
+}
+
+
+.post-buttons {
+    display: flex;
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+    align-items: flex-end; /* Alinea verticalmente los botones */
+    gap: 20px; /* Espacio entre cada botón */
+}
+
+.post-buttons .btn-blog {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+
+    border-radius: 50%; /* Hace que el botón sea circular */
+    align-self: flex-start; /* Alinea el botón hacia arriba */
+    transition: transform 0.3s ease, color 0.3s ease; /* Añade una transición suave para el hover */
+    outline: none; /* Elimina el borde al hacer clic */
+}
+
+.post-buttons .btn-blog:hover {
+    color: #ccc;
+    transform: scale(1.2); /* Agranda el botón ligeramente al hacer hover */
+    border-color: transparent; /* Asegura que el borde no cambie de color */
+}
+
+.post-buttons .btn-blog:focus {
+
+    outline: none; /* Elimina el contorno predeterminado del navegador */
+}
+
+.me-3 {
+    margin-right: 1rem;
+}
+
+h5.mb-1 {
+    margin-top: -12px; /* Ajusta el valor según lo necesario */
+    margin-bottom: 5px; /* Mantiene el espacio entre el título y la descripción */
+    font-size: 1.25rem; /* Ajusta el tamaño de la fuente si es necesario */
+}
+/*  =============================================================================================
+                        CREATE NEW POST STUFF       todo
+/*  ============================================================================================= */
+.form-post {
+    width: 100%;
+}
+
+.form-post .form-group {
+    margin-bottom: 15px;
+}
+
+.form-post label, .form-post h2 {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.form-post input[type="text"],
+.form-post input[type="email"],
+.form-post textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-post input[type="file"] {
+    width: 50%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.form-post-btn {
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+}
+
+.btn-submit {
+    background-color: #6a0dad;
+    text-align: center;
+    width: 35%;
+}
+
+.btn-submit:hover {
+    background-color: #5a0c9f;
+}
+
+.categories-container {
+    display: grid;
+
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(5, auto);
+    gap: 5px;
+}
+
+.categories-container-label {
+    font-size: 1.1em; /* Tamaño de la fuente mayor */
+    margin-top: -10px; /* Mueve el label un poco hacia arriba */
+    margin-bottom: 20px; /* Espacio inferior para separar el label de los elementos de la categoría */
+    margin-left: -15px; /* Mueve el label un poco hacia la derecha */
+
+}
+
+/* # =============================================================================
+    # Servicios card stuff - todo
+# ============================================================================= */
+.container .card-service {
+    max-width: 300px;
+    height: 265px; /* Adjusted height to include initial title */
+    margin: 30px 10px;
+    padding: 20px 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease-in-out;
+    background-color: #fff; /* Background color for visibility */
+    border-radius: 8px;
+}
+
+.container .card-service:hover {
+    height: 450px;
+}
+
+.container .card-service .imgContainer {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    top: -50px;
+    left: 10px;
+    z-index: 1;
+}
+
+.container .card-service:hover .imgContainer img {
+    transform: scale(1.2); /* Scale image up by 10% */
+}
+
+.container .card-service .imgContainer img {
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+.container .card-service .initial-title {
+    text-align: center;
+    margin-top: -40px; /* Adjusted for proper placement */
+    font-size: 1.5rem;
+    color: #111;
+    transition: 0.3s ease-in-out;
+}
+
+.container .card-service .content {
+    position: relative;
+    margin-top: -140px;
+    padding: 10px 15px;
+    text-align: center;
+    color: #111;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease-in-out;
+}
+
+.container .card-service:hover .initial-title {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.container .card-service:hover .content {
+    visibility: visible;
+    opacity: 1;
+    margin-top: -40px;
+    transition-delay: 0.3s;
+}
+
+@media (max-width: 330px) {
+    .container .card-service .imgContainer {
+        left: -2px;
+    }
+}
+
+
+
+/*
+# =============================================================================
+              PRODUCTOS STUFF   todo
+# =============================================================================
+*/
+/* SIDE BAR Top PRODUCTOS */
+
+.btn-container-side-bar-top {
+    padding: 15px 15px;
+    display: flex;
+    gap: 20px;
+
+    position: relative;
+    left: 20px;
+}
+
+.btn-sidebar-top {
+    color: white;   /* color fuente de lo que esta adentro */
+    font-size: 15px;
+    background-color: #780178;
+
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    transform: skew(-30deg);
+}
+
+.btn-sidebar-top span {
+    display: inline-block;
+    transform: skew(30deg);
+}
+
+.btn-sidebar-top-10 {
+    color: white;   /* color fuente de lo que esta adentro */
+    font-size: 20px;
+    background-color: #780178;
+
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    position: relative;
+    left: 20px;
+
+    width: 22%;
+    height: 50px; /* Adjusted height to include initial title */
+}
+
+.btn-sidebar-top-10:hover {
+    background-color: #000;
+}
+
+/* ==================================================================
+                Tarjeta de Productos todo
+==================================================================== */
+.product-card {
+
+    position: relative; /* Necesario para posicionar el recuadro */
+    width: 100%;
+    height: 100%; /* Establece una altura fija 100%; */
+    border: 1px solid #ddd;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Asegura que el contenido se distribuya uniformemente */
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.image-container {
+    width: 100%;    /*  50px; */
+    height: 250px; /* Ajusta la altura según sea necesario  auto; 250px; */
+    overflow: hidden; /* Oculta el desbordamiento si la imagen es demasiado grande */
+}
+
+.image-container img {
+
+    transition: transform 6.6s ease; /* Aumenta la duración de la transición */
+    width: 100%;    /* Adjust width to auto to keep aspect ratio */
+    height: 100%;   /* Set a fixed height */
+    object-fit: cover; /* Scale the image to cover the container */
+    /* object-fit: contain; /* Scale the image to fit the container while maintaining aspect ratio */
+}
+
+.image-container img:hover {
+    transform: scale(1.7); /* Aplica el efecto de zoom */
+}
+
+.corner-box i {
+    font-size: 25px;
+}
+
+.corner-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.corner-box:hover {
+    background-color: #BBBBBB;
+}
+
+.product-info {
+    padding: 15px;
+    width: 100%;
+    height: 60%; /* Ajusta la altura según sea necesario */
+    display: flex;
+    flex-direction: column;
+    text-align: left; /* Alinea el texto a la izquierda */
+    align-items: flex-start; /* Alinea los elementos a la izquierda */
+}
+
+.product-info p {
+    font-size: 14px;
+}
+
+.add-button {
+    display: none;
+
+    padding: 10px 20px;
+    background-color: #780178;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center; /* Asegura que el botón esté centrado */
+}
+
+.product-card:hover  {
+    height: 450px; /* Establece una altura fija 100%; */
+}
+
+.product-card:hover .add-button {
+    display: block;
+}
+
+.add-button:hover {
+    background-color: #00B405;
+}
+
+/* ======================================================================================
+            NECESARIO PARA CREAR LA VISTA SOMBREADA DEL WIDGET DEL CARRITO todo
+====================================================================================== */
+.cart-container {
+    position: fixed;  /* def fixed; */
+    right: 0;
+    top: 0;
+    width: 35%; /* Ajusta el ancho según sea necesario */
+    height: 100%;
+    background-color: white; /* Fondo blanco para el carrito */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1050; /* Más alto que el overlay */
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden; /* Asegura que los elementos no se salgan del contenedor */
+    margin: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.cart-container.show {
+    transform: translateX(0);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1040; /* Justo debajo del carrito */
+    pointer-events: none; /* Evita que interfiera cuando no está visible */
+}
+
+.overlay.show {
+    opacity: 1;
+    pointer-events: all; /* Permite la interacción cuando está visible */
+}
+
+.img-fluid {
+    width: 42%; /* 150px; auto;  */
+    height: 135px;
+    margin-right: 15px;
+    object-fit: contain; /* contain Usa cover para cubrir el contenedor, ajusta según sea necesario */
+}
+
+.cart-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.cart-item img {
+    border-radius: 8px;
+}
+
+.cart-content {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    max-height: 100%;  /* Ajusta según el tamaño deseado del contenedor */
+    flex: 1; /* Permite que este contenedor crezca y se reduzca según el tamaño disponible */
+    overflow-y: auto;  /* Permite el desplazamiento vertical */
+}
+
+.cart-header {
+    background-color: #f8f9fa;
+    border-bottom: 5px solid #333333;
+    padding: 10px;
+    position: relative;
+}
+
+.cart-footer {
+    padding: 10px;
+    bottom: 0;
+    background-color: #f8f9fa;
+    border-top: 5px solid #333333;
+}
+
+#close-cart {
+    top: 28%; /* Espacio desde el borde superior del contenedor */
+    right: 4%; /* Espacio desde el borde derecho del contenedor */
+}
+
+.remove-btn {
+
+    position: absolute; /* Posiciona el botón en relación a su contenedor más cercano que tenga una posición distinta a 'static' */
+    top: 1px; /* Espacio desde el borde superior del contenedor */
+    right: 1px; /* Espacio desde el borde derecho del contenedor */
+    border: none; /* Elimina el borde del botón */
+
+    font-size: 1.2rem; /* Tamaño de la fuente del botón (1.5 veces el tamaño de la fuente raíz) */
+    width: 1.5rem; /* Ancho del botón */
+    height: 1.5rem; /* Altura del botón */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #333333; /* Gris oscuro para el color de la cruz */
+    background-color: transparent; /* Hace que el fondo del botón sea transparente */
+    cursor: pointer; /* Cambia el cursor a una mano al pasar sobre el botón, indicando que es clickeable */
+
+    padding: 0; /* Elimina el padding para que el botón sea más pequeño */
+    box-shadow: 0 0 0 1px #333333;
+}
+
+.container-btn-cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Espacio entre cada botón */
+}
+
+.btn-wdt-cart {
+    width: 45%; /* Ocupa el 45% del ancho */
+    padding: 5px; /* Espaciado interno */
+    font-size: 18px; /* Tamaño del texto */
+    color: #fff; /* Color del texto blanco */
+    border: none; /* Sin bordes */
+    cursor: pointer; /* Cambia el cursor a puntero en hover */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.btn-ver-carrito {
+    background-color: #a9a9a9; /* Fondo gris para "Ver Carrito" */
+}
+
+.btn-ver-carrito:hover {
+    background-color: #8a8a8a; /* Fondo gris oscuro al pasar el mouse */
+}
+
+.btn-finalizar {
+    background-color: #8e44ad; /* Fondo violeta para "Finalizar" */
+}
+
+.btn-finalizar:hover {
+    background-color: #27ae60; /* Fondo verde al pasar el mouse */
+}
+
+/* ======================================================================================
+            Formulario contaco stuff  todo
+====================================================================================== */
+/* styles.css PARA EL FORMULARIO */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px; /* Ajusta este valor según sea necesario */
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 8px; /* Ajusta el padding si es necesario */
+    box-sizing: border-box;
+}
+
+.form-container2 {
+    width: 50%;
+    margin: 0 auto;
+
+    padding: 20px; /* Espacio uniforme alrededor del contenido  */
+
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+/* ======================================================================================
+            Ver carrito stuff  todo
+====================================================================================== */
+.card-cart-view {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 5px;
+}
+
+.border-bottom {
+    border-bottom: 100px solid #ddd; /* Ajusta el grosor y color según tu diseño */
+}
+
+/* Image Styles */
+.img-sm {
+    width: 110px;
+    height: 110px;
+}
+
+.img-sm:hover {
+    transform: scale(1.2);
+}
+
+.text-right {
+    display: flex;
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+    gap: 4px; /* Espacio opcional entre los botones */
+}
+
+.btn-cart-view {
+    color: #ffffff;
+    background-color: #C4C4C4;
+    border: none; /* Elimina el borde */
+    border-radius: 50%; /* Hace que el botón sea circular */
+    font-size: 15px;
+    width: 25px; /* Ajusta el tamaño del botón */
+    height: 25px; /* Ajusta el tamaño del botón */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease; /* Transición suave para el efecto de aumento */
+}
+
+.btn-cart-view:hover {
+    color: #ffffff;
+    background-color: #DC0000;
+    transform: scale(1.2); /* Aumenta el tamaño del botón en un 10% al pasar el mouse por encima */
+}
+
+.container-coupon {
+    width: 70%; /* Ancho del contenedor del formulario */
+    display: flex;
+    align-items: center;
+}
+
+.btn-coupon-apply {
+    color: #ffffff;
+    background-color: #780178;
+    border: none; /* Elimina el borde */
+    border-radius: 5px; /* Bordes redondeados */
+    width: 25%;
+    font-size: 14px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-coupon-apply:hover {
+    background-color: green; /* Cambia el color de fondo al pasar el ratón sobre el botón */
+}
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+}
+
+.quantity-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    width: fit-content;
+    background-color: transparent;
+}
+
+.btn-quantity {
+    background-color: transparent;
+    color: gray;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px; /* Tamaño de fuente */
+}
+
+.btn-quantity:hover {
+    color: black;
+}
+
+.quantity-input {
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    width: 50px;
+    height: 30px;
+    margin: 0 5px;
+    background-color: transparent;
+}
+
+.card-total-cart-view {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 15px;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total-divider {
+    border: none;
+    height: 2px;
+    background-color: #ddd;
+    margin: 5px 0; /* Espacio alrededor de la línea */
+}
+
+.btn-main {
+    border-radius: 2px;
+    text-transform: capitalize;
+    font-size: 15px;
+    padding: 10px 19px;
+    cursor: pointer;
+    color: #fff;
+    width: 100%;
+    background-color: #780178;
+    border: none;
+}
+
+.btn-main:hover {
+    background-color: green;
+}
+
+.product-title-cart {
+    color: black; /* Establece el color inicial como negro */
+    transition: color 0.3s ease; /* Añade una transición suave para el cambio de color */
+}
+
+.product-title-cart:hover {
+    color: #780178; /* Cambia el color a violeta al pasar el mouse */
+    text-decoration: none; /* Quita el subrayado */
+}
+
+/* ====================================================================
+                PRODUCTO ITEM INDIVIDUAL STUFF
+/* ==================================================================== */
+
+.prod-image-item {
+    background-size: cover;
+    background-position: center;
+    border: 2px solid black;
+}
+
+#prod-container {
+    width: 65vmin;
+    height: 64vmin;
+    display: flex;
+    position: relative;
+}
+
+.prod-left-column {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.prod-left-column .prod-small-image {
+    width: 100%;
+    height: 25%;
+    margin-bottom: 5%;
+    cursor: pointer;
+    transition: all .2s linear;
+    background-size: cover;
+    background-position: center;
+    /* border: 1px solid transparent; */
+    border: 2px solid black;
+}
+
+.prod-left-column .prod-small-image:hover {
+    border-color: #666;
+    border: 3px solid;
+}
+
+.prod-right-column {
+    width: 80%;
+    height: 100%;
+    padding: 0 2%;
+    position: relative;
+}
+
+.prod-right-column .prod-image-preview {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid black;
+    cursor: zoom-in;
+    transition: all .1s linear;
+}
+
+.prod-right-column .prod-image-preview.prod-zoomed {
+    background-size: 200% auto; /* Adjusted size for zoomed view */
+}
+
+.prod-right-column .prod-image-preview.prod-normal {
+    background-size: cover;
+}
+
+.prod-right-column .prod-zoom-in-cursor {
+    cursor: url('https://img.icons8.com/ios-filled/50/000000/zoom-in.png'), auto;
+}
+
+.prod-right-column .prod-zoom-out-cursor {
+    cursor: url('https://img.icons8.com/ios-filled/50/000000/zoom-out.png'), auto;
+}
+/*
+        Product card info stuff
+*/
+.product-info-container {
+    display: flex; /* Utiliza flexbox para alinear los elementos horizontalmente */
+    gap: 3%; /* Espacio entre los contenedores (ajustable según preferencia) */
+}
+
+.product-info {
+    background-color: #f0f0f0; /* Fondo gris claro para el contenedor */
+    padding: 5px; /* Espaciado interno */
+}
+
+.code-label {
+    color: #6c757d; /* Color gris tipo text-muted para las etiquetas */
+    font-size: 12px; /* Tamaño de fuente */
+}
+
+.code-value {
+    color: black; /* Color negro para los valores */
+    margin: 0; /* Eliminar márgenes por defecto del <p> */
+    font-size: 13px; /* Tamaño de fuente */
+}
+/*
+
+*/
+.payment-info-box {
+    border: 1px solid #ddd; /* Borde gris claro alrededor del recuadro */
+    background-color: #f9f9f9; /* Fondo gris claro */
+    padding: 5px; /* Espaciado interno */
+    max-width: 90%; /* Ancho máximo del recuadro */
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea el contenido al principio del contenedor */
+}
+
+.payment-info-content {
+    display: flex;
+    align-items: flex-start; /* Alinea el contenido al principio del contenedor */
+}
+
+.payment-icon img {
+    width: 50px; /* Ajusta el tamaño del icono */
+    height: auto;
+    align-items: flex-start; /* Alinea el contenido al principio del contenedor */
+}
+
+.payment-text p {
+    margin: 0;
+    font-size: 14px; /* Tamaño de fuente del texto */
+    font-weight: bold; /* Texto en negrita */
+}
+
+.payment-logo img {
+    max-width: 50%; /* Ajusta la imagen al ancho del contenedor */
+    height: auto;
+}
+/*
+ columnar precio
+*/
+.price-tag {
+    font-size: 24px; /* Tamaño de fuente del texto */
+}
+.price-box span {
+    font-size: 10px; /* Tamaño de fuente del texto */
+}
+.price-box {
+    border: 2px solid black; /* Borde del recuadro */
+    padding: 10px; /* Espaciado interno */
+    background-color: #f9f9f9; /* Color de fondo */
+    margin: 20px auto; /* Centrando el recuadro en la página */
+}
+
+.price-box img{
+    max-width: 100%; /* Ajusta la imagen al ancho del contenedor */
+    height: auto;
+}
+
+.my-container-add-quant {
+    display: flex;
+    align-items: center; /* Alinea verticalmente */
+    justify-content: center; /* Alinea horizontalmente */
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+    gap: 8%;
+    width: 100%;
+}
+
+.quantity-input-2{
+    font-size: 12px; /* Tamaño de fuente del texto */
+    max-width: 50%;
+    z-index: 10;
+}
+
+.btn-quantity-2{
+    font-size: 20px; /* Tamaño de fuente del texto */
+    max-width: 25%;
+    border: none; /* Sin bordes */
+    background-color: transparent; /* Fondo transparente */
+    cursor: pointer; /* Cambia el cursor a pointer al pasar sobre el botón */
+}
+
+.btn-add-item {
+    color: #ffffff;
+    background-color: #780178;
+    width: 100%;
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    border: none; /* Elimina el borde */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+    margin-right: 5%;
+    gap: 10%;
+}
+
+.btn-add-item:hover {
+    background-color: green; /* Cambia el color de fondo al pasar el ratón sobre el botón */
+}

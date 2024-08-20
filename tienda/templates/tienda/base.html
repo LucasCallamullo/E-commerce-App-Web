@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    {% load static %}
+
+    <!-- Preconnect and Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Fonts - Para mostrar algunos iconos -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <!-- Favicon tradicional de 16x16 píxeles -->
+    <link rel="icon" href="{% static 'tienda/ico/favicon.ico' %}" type="image/x-icon">
+    <!-- Favicon principal, tamaño recomendado de 32x32 píxeles -->
+    <link rel="icon" href="{% static 'tienda/ico/favicon-32x32.png' %}" sizes="32x32" type="image/png">
+    <!-- Icono para dispositivos Apple -->
+    <link rel="apple-touch-icon" href="{% static 'tienda/ico/apple-touch-icon.png' %}">
+    <!-- Iconos para Android y pantallas de alta resolución -->
+    <link rel="icon" sizes="192x192" href="{% static 'tienda/ico/android-chrome-192x192.png' %}">
+    <link rel="icon" sizes="512x512" href="{% static 'tienda/ico/android-chrome-512x512.png' %}">
+
+    <!-- For Changes Titles -->
+    <title>{% block extra_title %}Dragon Games Cba | House of Games{% endblock %}</title>
+
+    {% block extra_head %}
+        <!-- Cargar CSS o meta tags específicos de la página aquí -->
+    {% endblock %}
+
+     <!-- Bootstrap 4.5.2 -->
+    <link href="{% static 'tienda/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Usa la versión CDN de Bootstrap 4.5.2
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+
+    <!-- Styles -->
+    <link href="{% static 'tienda/css/gestion.css' %}" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <div class="container-fluid p-0 my-container-header">
+
+            <!-- Primera fila -->
+            <div class="row">
+                <aside class="col-lg-1 p-0"></aside>
+
+                <!-- Logo -->
+                <aside class="col-lg-2 p-0" style="z-index: 10;">
+                    <a href="{% url 'Home' %}">
+                        <img src="{% static 'tienda/ico/dragon_logo.png' %}" alt="Logo" class="my-logo">
+                    </a>
+                </aside>
+
+                <!-- Top Search bar -->
+                <aside class="col-lg-7 my-container-center p-0">
+                    <form class="my-container-center my-search-top-bar" action="{% url 'Producto_Top_Search' %}" method="GET">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Vamo a juga!" name="top_q">
+                            <div class="input-group-append">
+                                <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </aside>
+
+                <!-- Icon Container -->
+                <aside class="col-lg-1 my-container-center p-0">
+                    <button class="btn my-btn-header-icon" onclick="window.location.href='#';">
+                        <i class="fab fa-whatsapp"></i>
+                    </button>
+
+                    <button class="btn my-btn-header-icon" onclick="window.location.href='#';">
+                        <i class="fab fa-facebook"></i>
+                    </button>
+
+                    <button class="btn my-btn-header-icon" onclick="window.location.href='#';">
+                        <i class="fab fa-instagram"></i>
+                    </button>
+
+                    <button class="btn my-btn-header-icon" onclick="window.location.href='#';">
+                        <i class="fab fa-google"></i>
+                    </button>
+                </aside>
+
+                <aside class="col-lg-1 p-0"></aside>
+            </div>
+
+            <!-- Segunda fila -->
+            <div class="row mt-2 mb-1">
+                <!-- Espaciado a la izquierda -->
+                <aside class="col-lg-1 p-0"></aside>
+
+                <!-- Barra de Categorías -->
+                <aside class="col-lg-10 p-0">
+                    <nav class="navbar navbar-expand-lg">
+                        <!-- Botón toggler para pantallas pequeñas -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav my-container-center">
+                                <!-- DROP CATEGORIAS -->
+                                <li class="nav-item px-lg-4">
+                                    <div class="cats-container">
+                                        <!-- Widget desplegable para la barra del menú -->
+                                        {% include "producto/dropmenu_categories.html" %}
+                                    </div>
+                                </li>
+
+                                <!-- Agregados para separación buscar otra solución -->
+                                <li class="nav-item px-lg-3">
+
+                                <!-- Enlaces de navegación -->
+                                <!-- Home -->
+                                <li class="nav-item nav-item-texts-tabs {% if request.path == '/' %} active {% endif %}">
+                                    <button class="btn btn-header-text"
+                                            onclick="window.location.href='{% url 'Home' %}';">Inicio
+                                    </button>
+                                </li>
+
+                                <!-- Productos -->
+                                <li class="nav-item nav-item-texts-tabs {% if request.path == '/producto/' %} active {% endif %}">
+                                    <button class="btn btn-header-text"
+                                            onclick="window.location.href='{% url 'Producto' %}';">Producto
+                                    </button>
+                                </li>
+
+                                <!-- Contacto -->
+                                <li class="nav-item nav-item-texts-tabs {% if request.path == '/contacto/' %} active {% endif %}">
+                                    <button class="btn btn-header-text"
+                                            onclick="window.location.href='{% url 'Contacto' %}';">Contacto
+                                    </button>
+                                </li>
+
+                                <!-- Blog -->
+                                <li class="nav-item nav-item-texts-tabs {% if request.path == '/blog/' %} active {% endif %}">
+                                    <button class="btn btn-header-text"
+                                            onclick="window.location.href='{% url 'Blog' %}';">Blog
+                                    </button>
+                                </li>
+
+                                <!-- Servicios -->
+                                <li class="nav-item nav-item-texts-tabs {% if request.path == '/servicios/' %} active {% endif %}">
+                                    <button class="btn btn-header-text"
+                                            onclick="window.location.href='{% url 'Servicio' %}';">Servicio
+                                    </button>
+                                </li>
+
+
+                                <!-- Botones -->
+                                <!-- Widget desplegable para el carrito de compras -->
+                                <li class="nav-item px-lg-0">
+                                    <button class="btn-header nav-move-left" id="cart-button">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <!-- Badge para mostrar el número de productos -->
+                                        <span class="badge" id="badge-cart-button">{{ total_productos }}</span>
+                                    </button>
+
+                                    {% include "carrito/widget_carrito.html" %}
+                                </li>
+
+                                <!-- Widget desplegable para el inicio de sesión -->
+                                <li class="nav-item px-lg-0">
+                                    <!-- Widget desplegable para el inicio de sesión -->
+                                    {% include "registros/widget_registro.html" %}
+                                </li>
+
+
+                            </ul>
+                        </div>
+                     </nav>
+                </aside>
+
+                <!-- Espaciado a la derecha -->
+                <aside class="col-lg-1 p-0"></aside>
+            </div>
+
+            <div class="row">
+                <!-- Carousel home -->
+                <aside class="col-lg-12 p-0">
+                        <!-- Tercera fila -->
+                        {% block header_home %}
+
+                        {% endblock %}
+                </aside>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+    <!-- Contenido Cambianteee -->
+    {% block content %}
+        <!-- Contenido específico de la página -->
+    {% endblock %}
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Primera columna: Logo + Texto de la compañía -->
+            <div class="footer-column">
+                <a href="{% url 'Home' %}">
+                    <img src="{% static 'tienda/ico/dragon_logo.png' %}" alt="Company Logo" class="footer-logo">
+                </a>
+                <p>
+                    ¡Tu cueva Gamer en Córdoba! 🎮
+                </p>
+                <p>
+                    Somos la tienda de computación y videojuegos que hacía falta en Córdoba.
+                    Nacida con el propósito de satisfacer a todo jugador PC Gamer, Playstation, Nintendo y Xbox
+                </p>
+                <p>
+                    Grandes marcas nos acompañan como Asus, Corsair, Hyperx, Gigabyte, Logitech,
+                    Samsung o Redragon entre otras.
+                </p>
+            </div>
+
+            <!-- Segunda columna: Texto extra de información -->
+            <div class="footer-column">
+
+                <h3><strong>Additional Information! </strong></h3>
+
+                <button class="btn-footer">
+                    <i class="fa fa-map-marker-alt"></i>
+                    <span>Sarmiento 1138, Córdoba, Argentina.</span>
+                </button>
+
+                <button class="btn-footer">
+                    <i class="fab fa-whatsapp icon"></i>
+                    <span>+54 9 351 543-7688</span>
+                </button>
+
+                <button class="btn-footer">
+                    <i class="fa fa-clock"></i>
+                    <span>Lunes a Viernes de 10hs a 14hs y de 15hs a 18:50hs.
+                        Sábado mediodía y el domingo dormimos todo el día.</span>
+                </button>
+
+                <button class="btn-footer">
+                    <i class="fa fa-envelope"></i>
+                    <span>ventas@dragonesgames.com</span>
+                </button>
+
+            </div>
+
+            <!-- Tercera columna: Vacía para personalización futura -->
+            <div class="footer-column">
+
+                <h3><strong>&nbsp;&nbsp;Seguinos! </strong></h3>
+
+                <!-- Icon Container -->
+                <div class="icon-container-footer">
+                    <button class="btn">
+                        <i class="fab fa-whatsapp icon"></i>
+                    </button>
+                    <button class="btn">
+
+                        <i class="fab fa-facebook icon"></i>
+                    </button>
+                    <button class="btn">
+                        <i class="fab fa-instagram icon"></i>
+                    </button>
+                    <button class="btn">
+                        <i class="fab fa-google icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <p class="footer-text-final">
+            © 2024 Dragon Games Cba. All rights reserved.
+        </p>
+
+    </footer>
+
+    <!-- Bootstrap Scripts -->
+    <script src="{% static 'tienda/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'tienda/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+
+    <!-- Incluye jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap JS and dependencies
+    probablemente podría actualizar los archivos del static pero por ahora meh
+    creo que era del widget_producto-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+
+    <!-- ==================================================================
+     #                  Mis Scripts personalizados
+     ===================================================================== -->
+
+    <!-- JavaScript for Carrito Widget -->
+    <script src="{% static 'carrito/js/widget_carrito.js' %}"></script>
+
+    <!-- JavaScript for Widget de registro button -->
+    <script src="{% static 'registros/js/widget_registro.js' %}"></script>
+
+    <!-- JavaScript for producto/ dropmenu-categories -->
+    <script src="{% static 'producto/js/dropmenu_categories.js' %}"></script>
+
+    <!-- JavaScript para bloquear como top bar la nav bar -->
+    <script>
+        $(function () {
+            var $nav = $("#mainNav");
+            var navOffset = $nav.offset().top; // Obtiene la posición de la barra de navegación desde el top del documento
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > navOffset) {
+                    $nav.addClass("fixed-nav");
+                } else {
+                    $nav.removeClass("fixed-nav");
+                }
+            });
+        });
+    </script>
+
+    {% block extra_scripts %}
+    <!-- Cargas archivos .js propios de cada template/vista
+    - Por ahora solo se usa en producto_base.html
+
+    -->
+    {% endblock %}
+
+</body>
+</html>
