@@ -3,7 +3,7 @@
 ### Descripción
 Este proyecto es una WebApp de Ecommerce completamente funcional desarrollada con Django para el back-end y un front-end responsive utilizando HTML, CSS (Bootstrap), y JavaScript. La aplicación permite a los usuarios gestionar productos y cuentas de manera eficiente a través de un sistema CRUD, con funcionalidades avanzadas como autenticación segura y actualizaciones de contenido en tiempo real mediante AJAX.
 
-![Static Badge](https://img.shields.io/badge/Documentation-EN-blue) [![Documentation ES](https://img.shields.io/badge/Documentation-ES-green)](https://github.com/LucasCallamullo/APP-Mobile-in-Python/blob/main/Read_es.md)
+![Static Badge](https://img.shields.io/badge/Documentation-EN-blue) [![Documentation ES](https://img.shields.io/badge/Documentation-ES-green)]([https://github.com/LucasCallamullo/APP-Mobile-in-Python/blob/main/Read_es.md](https://github.com/LucasCallamullo/E-commerce-App-Web/blob/main/README-ES.md))
 
 ### [EN]
 #### Technologies
@@ -49,7 +49,7 @@ Este proyecto es una WebApp de Ecommerce completamente funcional desarrollada co
    python manage.py load_product_data
 
 ### [ES]
-[![Documentation ES](https://img.shields.io/badge/Documentation-ES-green)](https://github.com/LucasCallamullo/APP-Mobile-in-Python/blob/main/Read_es.md)
+[![Documentation ES](https://img.shields.io/badge/Documentation-ES-green)]([https://github.com/LucasCallamullo/APP-Mobile-in-Python/blob/main/Read_es.md](https://github.com/LucasCallamullo/E-commerce-App-Web/blob/main/README-ES.md))
 
 ## Watch the App Demo on YouTube
 [![Ver el video](https://img.youtube.com/vi/Hkyp8LaPAPg/0.jpg)](https://www.youtube.com/watch?v=Hkyp8LaPAPg)
