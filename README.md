@@ -27,29 +27,26 @@ Este proyecto es una WebApp de Ecommerce completamente funcional desarrollada co
 
 2. **Instalar Dependencias**:
    ```bash
-pip install mysqlclient
-pip install django
-pip install pandas
-pip install openpyxl```
+   pip install mysqlclient
+   pip install django
+   pip install pandas
+   pip install openpyxl```
 
 3. **Aplicar las Migraciones: Ejecuta las migraciones para crear las tablas en la base de datos.**:
    ```bash
-python manage.py makemigrations
-python manage.py migrate```
+   python manage.py makemigrations
+   python manage.py migrate```
 
 4. **Crear un Superuser (Opcional): Si necesitas acceso al panel de administración, crea un superusuario.**:
    ```bash
-python manage.py createsuperuser
-```
+   python manage.py createsuperuser ```
 
 5. **Ejecutar el Script load_data: Este comando cargará los datos iniciales en tu base de datos utilizando pandas y openpyxl.**
    ```bash
-python manage.py load_data
-```
-5. **Ejecutar el Script load_product_data: Similar al paso anterior, este comando cargará los productos en la base de datos (nombres, precios, categorías, etc). **
+   python manage.py load_data ```
+6. **Ejecutar el Script load_product_data: Similar al paso anterior, este comando cargará los productos en la base de datos (nombres, precios, categorías, etc). **
    ```bash
-python manage.py load_product_data
-```
+   python manage.py load_product_data ```
 
 ### [ES]
 [![Documentation ES](https://img.shields.io/badge/Documentation-ES-green)](https://github.com/LucasCallamullo/APP-Mobile-in-Python/blob/main/Read_es.md)
