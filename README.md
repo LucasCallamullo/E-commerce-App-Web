@@ -3,7 +3,7 @@
 ### Descripción
 Este proyecto es una WebApp de Ecommerce completamente funcional desarrollada con Django para el back-end y un front-end responsive utilizando HTML, CSS (Bootstrap), y JavaScript. La aplicación permite a los usuarios gestionar productos y cuentas de manera eficiente a través de un sistema CRUD, con funcionalidades avanzadas como autenticación segura y actualizaciones de contenido en tiempo real mediante AJAX.
 
-![Static Badge](https://img.shields.io/badge/Documentation-EN-blue)](https://github.com/LucasCallamullo/E-commerce-App-Web/blob/main/README.md) [![Documentation ES](https://img.shields.io/badge/Documentation-ES-green)](https://github.com/LucasCallamullo/E-commerce-App-Web/blob/main/README-ES.md)
+[![Static Badge](https://img.shields.io/badge/Documentation-EN-blue)](https://github.com/LucasCallamullo/E-commerce-App-Web/blob/main/README.md) [![Documentation ES](https://img.shields.io/badge/Documentation-ES-green)](https://github.com/LucasCallamullo/E-commerce-App-Web/blob/main/README-ES.md)
 
 ### [EN]
 #### Technologies
