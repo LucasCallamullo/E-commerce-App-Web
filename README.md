@@ -1,7 +1,7 @@
 ## Proyecto WebApp Ecommerce
 
-### Descripción
-Este proyecto es una WebApp de Ecommerce completamente funcional desarrollada con Django para el back-end y un front-end responsive utilizando HTML, CSS (Bootstrap), y JavaScript. La aplicación permite a los usuarios gestionar productos y cuentas de manera eficiente a través de un sistema CRUD, con funcionalidades avanzadas como autenticación segura y actualizaciones de contenido en tiempo real mediante AJAX.
+### Description
+This project is a fully functional Ecommerce WebApp developed with Django for the back-end and a responsive front-end using HTML, CSS (Bootstrap), and JavaScript. The application allows users to efficiently manage products and accounts through a CRUD system, with advanced features such as secure authentication and real-time content updates using AJAX.
 
 [![Static Badge](https://img.shields.io/badge/Documentation-EN-blue)](https://github.com/LucasCallamullo/E-commerce-App-Web/blob/main/README.md) [![Documentation ES](https://img.shields.io/badge/Documentation-ES-green)](https://github.com/LucasCallamullo/E-commerce-App-Web/blob/main/README-ES.md)
 
@@ -9,42 +9,42 @@ Este proyecto es una WebApp de Ecommerce completamente funcional desarrollada co
 #### Technologies
 * Backend: Python, Django
 * Frontend: HTML, CSS (Bootstrap), JavaScript
-* Base de Datos: MySQL
-* Otros: AJAX
+* Database: MySQL
+* Others: AJAX
 
-#### Características
-* API RESTful: Implementada en Django para manejar todas las operaciones CRUD (Crear, Leer, Actualizar, Eliminar) tanto para productos como para usuarios.
-* Interfaz Responsive: Diseño adaptable a diferentes dispositivos utilizando HTML, CSS y Bootstrap.
-* Autenticación Segura: Sistema de registro y autenticación de usuarios integrado, asegurando la privacidad y seguridad de los datos.
-* Actualizaciones en Tiempo Real: Uso de AJAX para mejorar la experiencia del usuario, permitiendo acciones como la actualización del carrito de compras sin recargar la página.
-* Base de Datos MySQL: Conexión y manipulación de datos mediante el ORM de Django, garantizando la integridad y eficiencia en las operaciones con la base de datos.
+#### Features
+* RESTful API: Implemented in Django to handle all CRUD operations (Create, Read, Update, Delete) for both products and users.
+* Responsive Interface: Adaptive design for different devices using HTML, CSS, and Bootstrap.
+* Secure Authentication: Integrated user registration and authentication system, ensuring data privacy and security.
+* Real-Time Updates: Utilization of AJAX to enhance user experience, allowing actions like updating the shopping cart without page reloads.
+* MySQL Database: Connection and data manipulation through Django's ORM, ensuring integrity and efficiency in database operations.
 
-#### Instalación y Configuración
-1. **Clonar el repositorio**:
+#### Installation and Setup
+1. **Clone the repository:**:
    ```bash
    git clone https://github.com/LucasCallamullo/E-commerce-App-Web.git
    cd E-commerce-App-Web
 
-2. **Instalar Dependencias**:
+2. **Install Dependencies**:
    ```bash
    pip install mysqlclient
    pip install django
    pip install pandas
    pip install openpyxl
 
-3. **Aplicar las Migraciones: Ejecuta las migraciones para crear las tablas en la base de datos.**:
+3. **Apply Migrations: Run the migrations to create the tables in the database**:
    ```bash
    python manage.py makemigrations
    python manage.py migrate
 
-4. **Crear un Superuser (Opcional): Si necesitas acceso al panel de administración, crea un superusuario.**:
+4. **Create a Superuser (Optional): If you need access to the admin panel, create a superuser**:
    ```bash
    python manage.py createsuperuser
 
-5. **Ejecutar el Script load_data: Este comando cargará los datos iniciales en tu base de datos utilizando pandas y openpyxl.**
+5. **Run the load_data Script: This command will load initial data into your database using pandas and openpyxl**
    ```bash
    python manage.py load_data
-6. **Ejecutar el Script load_product_data: Similar al paso anterior, este comando cargará los productos en la base de datos (nombres, precios, categorías, etc).**
+6. **Run the load_product_data Script: Similar to the previous step, this command will load products into the database (names, prices, categories, etc.).**
    ```bash
    python manage.py load_product_data
 
