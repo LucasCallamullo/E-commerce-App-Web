@@ -49,7 +49,7 @@ Este proyecto es una WebApp de Ecommerce completamente funcional desarrollada co
    python manage.py load_product_data
 
 ### [ES]
-[![Documentation ES](https://img.shields.io/badge/Documentation-ES-green)]([https://github.com/LucasCallamullo/APP-Mobile-in-Python/blob/main/Read_es.md](https://github.com/LucasCallamullo/E-commerce-App-Web/blob/main/README-ES.md))
+[![Documentation ES](https://img.shields.io/badge/Documentation-ES-green)](https://github.com/LucasCallamullo/E-commerce-App-Web/blob/main/README-ES.md)
 
 ## Watch the App Demo on YouTube
 [![Ver el video](https://img.youtube.com/vi/Hkyp8LaPAPg/0.jpg)](https://www.youtube.com/watch?v=Hkyp8LaPAPg)
