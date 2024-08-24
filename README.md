@@ -51,8 +51,7 @@ This project is a fully functional Ecommerce WebApp developed with Django for th
 ### [ES]
 [![Documentation ES](https://img.shields.io/badge/Documentation-ES-green)](https://github.com/LucasCallamullo/E-commerce-App-Web/blob/main/README-ES.md)
 
-## Watch the App Demo on YouTube
-[![Ver el video](https://img.youtube.com/vi/Hkyp8LaPAPg/0.jpg)](https://www.youtube.com/watch?v=Hkyp8LaPAPg)
+
 
 
 ### Images:
