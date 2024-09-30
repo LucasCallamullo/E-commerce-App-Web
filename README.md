@@ -7,7 +7,7 @@ This project is a fully functional Ecommerce WebApp developed with Django for th
 
 ### [EN]
 
-### 💻 Programming Language
+### ⚙️ Technologies
 | ![Python Badge](https://img.shields.io/badge/python-%2314354C.svg?style=for-the-badge&logo=python&logoColor=white) | ![Django Badge](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=green) | ![JavaScript Badge](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) | ![MySQL Badge](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white) |
 |:-:|:-:|:-:|:-:|
 
@@ -22,14 +22,6 @@ This project is a fully functional Ecommerce WebApp developed with Django for th
 | ![Git Badge](https://img.shields.io/badge/git%20-%23F05033.svg?&style=for-the-badge&logo=git&logoColor=white) | [![GitHub Badge](https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/LucasCallamullo) | ![VSCode Badge](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white) |
 |:-:|:-:|:-:|
 
-
-
-
-#### Technologies
-* Backend: Python, Django
-* Frontend: HTML, CSS (Bootstrap), JavaScript
-* Database: MySQL
-* Others: AJAX
 
 #### Features
 * RESTful API: Implemented in Django to handle all CRUD operations (Create, Read, Update, Delete) for both products and users.
