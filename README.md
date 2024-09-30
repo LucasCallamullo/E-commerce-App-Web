@@ -70,3 +70,12 @@ This project is a fully functional Ecommerce WebApp developed with Django for th
 ![](https://i.pinimg.com/736x/e1/1b/8a/e11b8a41f2f803cb0bcbcc735b4fcbbf.jpg)
 
 > Some screens of the app
+
+<br></br>
+
+### 💻 Contact Back-End Developer / Full-Stack Developer:
+| [![GitHub Badge](https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/LucasCallamullo) | [![LinkedIn Badge](https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lucas-callamullo/) | [![Youtube Badge](https://img.shields.io/badge/YouTube%20-%23FF0000.svg?&style=for-the-badge&logo=YouTube&logoColor=white)](https://www.youtube.com/@lucas_clases_python) |
+|:-:|:-:|:-:|
+
+| **Lucas Callamullo** |
+|:-:|
