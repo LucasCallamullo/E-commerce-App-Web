@@ -51,9 +51,6 @@ Este proyecto es una WebApp de Ecommerce completamente funcional desarrollada co
 ### [ES]
 [![Documentation ES](https://img.shields.io/badge/Documentation-ES-green)](https://github.com/LucasCallamullo/APP-Mobile-in-Python/blob/main/Read_es.md)
 
-## Watch the App Demo on YouTube
-[![Ver el video](https://img.youtube.com/vi/Hkyp8LaPAPg/0.jpg)](https://www.youtube.com/watch?v=Hkyp8LaPAPg)
-
 
 ### Images:
 ![](https://i.pinimg.com/736x/73/5b/6e/735b6ebb2cf852e28472a2efcc378e9e.jpg)
