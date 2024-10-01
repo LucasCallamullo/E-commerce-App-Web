@@ -5,7 +5,6 @@ Este proyecto es una WebApp de Ecommerce completamente funcional desarrollada co
 
 ![Static Badge](https://img.shields.io/badge/Documentation-EN-blue) [![Documentation ES](https://img.shields.io/badge/Documentation-ES-green)](https://github.com/LucasCallamullo/APP-Mobile-in-Python/blob/main/Read_es.md)
 
-### [EN]
 #### Technologies
 * Backend: Python, Django
 * Frontend: HTML, CSS (Bootstrap), JavaScript
