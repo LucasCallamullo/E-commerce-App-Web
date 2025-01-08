@@ -38,24 +38,17 @@ This project is a fully functional Ecommerce WebApp developed with Django for th
 
 2. **Install Dependencies**:
    ```bash
-   pip install mysqlclient
-   pip install django
-   pip install pandas
-   pip install openpyxl
+   pip install -r requirements.txt
 
 3. **Apply Migrations: Run the migrations to create the tables in the database**:
    ```bash
    python manage.py makemigrations
    python manage.py migrate
 
-4. **Create a Superuser (Optional): If you need access to the admin panel, create a superuser**:
-   ```bash
-   python manage.py createsuperuser
-
-5. **Run the load_data Script: This command will load initial data into your database using pandas and openpyxl**
+4. **Run the load_data Script: This command will load initial data into your database using pandas and openpyxl**
    ```bash
    python manage.py load_data
-6. **Run the load_product_data Script: Similar to the previous step, this command will load products into the database (names, prices, categories, etc.).**
+5. **Run the load_product_data Script: Similar to the previous step, this command will load products into the database (names, prices, categories, etc.).**
    ```bash
    python manage.py load_product_data
 
